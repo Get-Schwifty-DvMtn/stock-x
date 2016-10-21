@@ -21,6 +21,11 @@
     "cors": "^2.8.1",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-order": "^1.1.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.2",
     "massive": "^2.5.0",
     "yahoo-finance": "^0.2.14"
   }
