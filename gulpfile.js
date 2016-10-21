@@ -15,14 +15,12 @@ gulp.task('js', function(){
 });
 
 gulp.task("sass", function(){
-  return gulp.src(["./public/styles/*.css", "./public/styles/*.scss"])
+  return gulp.src(["./public/styles/*.scss"])
   .pipe(sass().on('error', sass.logError))
-  .pipe(concat('all.css'))
   .pipe(gulp.dest('dist'));
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./public/styles/*.css', ['sass']);
   gulp.watch('./public/styles/*.scss', ['sass']);
   gulp.watch('./public/app/*.js', ['js']);
   gulp.watch('./public/app/js/*.js', ['js']);
