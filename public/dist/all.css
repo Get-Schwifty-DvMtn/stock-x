@@ -204,5 +204,7 @@ nav li:not(:last-child) {
   -ms-transform: rotate(-90deg) translateX(4px);
   transform: rotate(-90deg) translateX(4px); }
 
-.nav-wrapper {
-  color: blue; }
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px; }

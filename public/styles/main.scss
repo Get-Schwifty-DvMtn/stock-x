@@ -1,6 +1,12 @@
 @import './base/reset.scss';
 @import './css/menu.scss';
 
-.nav-wrapper {
-  color: blue;
+// .axis--x path {
+//   display: none;
+// }
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
 }

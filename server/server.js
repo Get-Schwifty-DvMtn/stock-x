@@ -3,10 +3,13 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var session = require('express-session');
 var massive = require('massive');
-// var yahooFinance = require('yahoo-finance');
-
+var yahooFinance = require('yahoo-finance');
+var yahooCtrl = require("./controller/yahooCtrl.js");
 // config.port, config.secret, config.nytAPI
 var config = require('./config.js');
+
+
+
 
 
 var app = express();
@@ -18,6 +21,13 @@ app.use(session({
   saveUninitialized: true,
   resave: true
 }));
+
+
+
+
+
+
+app.get("/testhole", yahooCtrl.getStocks);
 
 app.listen(config.port, function(){
   console.log("Yo, it's your port, " + config.port);
