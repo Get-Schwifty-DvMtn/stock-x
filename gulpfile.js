@@ -11,13 +11,14 @@ gulp.task('js', function(){
     'app.js', '*.js'
   ]))
   .pipe(concat('all.js'))
-  .pipe(gulp.dest('.public/dist'));
+  .pipe(gulp.dest('dist'));
 });
 
 gulp.task("sass", function(){
   return gulp.src(["./public/styles/*.scss"])
   .pipe(sass().on('error', sass.logError))
-  .pipe(gulp.dest('.public/dist'));
+  .pipe(concat('all.css'))
+  .pipe(gulp.dest('dist'));
 });
 
 gulp.task('watch', function() {
