@@ -3,14 +3,14 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var session = require('express-session');
 var massive = require('massive');
-var yahooFinance = require('yahoo-finance');
+// var yahooFinance = require('yahoo-finance');
 
 // config.port, config.secret, config.nytAPI
 var config = require('./config.js');
 
 
 var app = express();
-
+app.use(express.static('public'));
 app.use(bodyParser.json());
 
 app.use(session({
@@ -19,13 +19,6 @@ app.use(session({
   resave: true
 }));
 
-
-
-
-
-
-
-
-app.listen(config.port, function() {
-  console.log('listening on port', config.port);
+app.listen(config.port, function(){
+  console.log("Yo, it's your port, " + config.port);
 });
