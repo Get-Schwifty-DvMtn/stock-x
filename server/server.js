@@ -11,7 +11,6 @@ var config = require('./config.js');
 
 
 
-
 var app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -23,8 +22,7 @@ app.use(session({
 }));
 
 
-
-
+// app.get("/tbh", nyTimesCtrl.getNews);
 
 
 app.get("/testhole", yahooCtrl.getStocks);
