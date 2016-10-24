@@ -1,20 +1,2 @@
 @import './base/reset.css';
 @import './css/main.css';
-
-body {
-    width: 100%;
-    height: 100vh;
-}
-
-.main-wrapper {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.asian-pix {
-    height: 500px;
-    width: 400px;
-}
