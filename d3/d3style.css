@@ -1,0 +1,6 @@
+* {
+    fill: none;
+ stroke: black;
+ stroke-width: 3pt;
+ stroke-dasharray: 3,5,10;
+}
