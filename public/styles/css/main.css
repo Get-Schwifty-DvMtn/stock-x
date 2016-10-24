@@ -1,156 +1,192 @@
+*, *:before, *:after {
+    @include box-sizing('border-box');
+}
+
 a {
-	transition:0.2s all ease-in-out;
-	-webkit-transition:0.2s all ease-in-out;
-	outline:0;
+    transition: 0.2s all ease-in-out;
+    -webkit-transition: 0.2s all ease-in-out;
+    outline: 0;
 }
+
 .no-scroll {
-	overflow:hidden;
+    overflow: hidden;
 }
-html,body {
-	height:100%;
+
+html, body {
+    height: 100%;
 }
+
 .container {
-	max-width:740px;
-	margin:0 auto;
-	padding: 15%;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 15%;
 }
+
+
 /* Nav */
-.wrapper,.wrapper-overlay,nav,.navicon {
-	-webkit-transition:all 0.2s ease-in-out;
-	transition:all 0.2s ease-in-out;
+
+.wrapper, .wrapper-overlay, nav, .navicon {
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
+
 .wrapper {
-	min-height:100%;
-	width:100%;
-	position:relative;
-	top:0;
-	bottom:0;
-	left:0;
-	z-index:3;
-	background-color:#fff;
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    background-color: #fff;
 }
+
 .wrapper.active {
-	left:250px;
-	cursor:pointer;
+    left: 250px;
+    cursor: pointer;
 }
+
 .wrapper-overlay {
-	position:fixed;
-	top:0;
-	right:0;
-	bottom:0;
-	left:0;
-	background-color:rgba(180,180,180,0.9);
-	visibility:hidden;
-	z-index:4;
-	opacity:0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(180, 180, 180, 0.9);
+    visibility: hidden;
+    z-index: 4;
+    opacity: 0;
 }
+
 .wrapper-overlay.active {
-	visibility:visible;
-	opacity:1;
-	left:250px;
+    visibility: visible;
+    opacity: 1;
+    left: 250px;
 }
+
 .wrapper-overlay.active:hover {
-	background-color:rgba(180,180,180,0.75);
+    background-color: rgba(180, 180, 180, 0.75);
 }
+
 nav {
-	z-index:1;
-	position:fixed;
-	background:#11111a;
-	height:100%;
-	width:100%;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	overflow:hidden;
+    z-index: 1;
+    position: fixed;
+    background: #11111a;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
 }
+
 nav h3 {
-	font-style:italic;
-	color:#fff;
-	opacity:0.5;
-	font-size:80%;
-	padding:5px 25px 10px;
+    font-style: italic;
+    color: #fff;
+    opacity: 0.5;
+    font-size: 80%;
+    padding: 5px 25px 10px;
 }
+
 nav ul {
-  padding: 0;
+    padding: 0;
 }
+
 nav ul:not(:last-child) {
-	margin-bottom:2rem;
+    margin-bottom: 2rem;
 }
+
 nav li {
-	display:block;
+    display: block;
 }
+
 nav a {
-	color:#fff;
-	padding:10px 25px;
-	display:block;
-	text-decoration:none;
+    color: #fff;
+    padding: 10px 25px;
+    display: block;
+    text-decoration: none;
 }
+
 nav a:hover {
-	padding-left:30px;
-	color:#aaa;
+    padding-left: 30px;
+    color: #aaa;
 }
+
 nav li:not(:last-child) {
-	border-bottom:1px solid #22222a;
+    border-bottom: 1px solid #22222a;
 }
+
 .nav-wrapper {
-	position:fixed;
-	top:0;
-	left:0;
-	bottom:0;
-	width:300px;
-	padding:20px 0;
-	overflow: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    padding: 20px 0;
+    overflow: none;
     border: none;
 }
+
+
 /* Navicon */
+
 .navicon {
-	position:absolute;
-	top:0;
-	left:0;
-	padding:30px;
-	cursor:pointer;
-	z-index:999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    cursor: pointer;
+    z-index: 999;
 }
+
 .navicon.active {
-	left:250px;
+    left: 250px;
 }
+
 .navicon:hover .toggle span {
-	background-color:#777;
+    background-color: #777;
 }
+
 .navicon .toggle {
-	display:block;
-	float:left;
-	-webkit-transition:all 0.6s ease;
-	transition:all 0.6s ease;
+    display: block;
+    float: left;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
 }
+
 .navicon .toggle span {
-	width:16px;
-	height:3px;
-	background:#aaa;
-	display:block;
-	-webkit-transition:all 0.2s ease;
-	transition:all 0.2s ease;
+    width: 16px;
+    height: 3px;
+    background: #aaa;
+    display: block;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
+
 .navicon .toggle span:not(:last-child) {
-	margin-bottom:2px;
+    margin-bottom: 2px;
 }
+
 .navicon.active .toggle {
-	-webkit-transform:rotate(-45deg);
-	-ms-transform:rotate(-45deg);
-	transform:rotate(-45deg)
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg)
 }
+
 .navicon.active .toggle .t1 {
-	-webkit-transform:translateY(6px);
-	-ms-transform:translateY(6px);
-	transform:translateY(6px)
+    -webkit-transform: translateY(6px);
+    -ms-transform: translateY(6px);
+    transform: translateY(6px)
 }
+
 .navicon.active .toggle .t2 {
-	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-	opacity:0;
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
 }
+
 .navicon.active .toggle .t3 {
-	-webkit-transform:rotate(-90deg) translateX(4px);
-	-ms-transform:rotate(-90deg) translateX(4px);
-	transform: rotate(-90deg) translateX(4px)
+    -webkit-transform: rotate(-90deg) translateX(4px);
+    -ms-transform: rotate(-90deg) translateX(4px);
+    transform: rotate(-90deg) translateX(4px)
 }
