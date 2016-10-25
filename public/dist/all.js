@@ -10,6 +10,7 @@ angular.module("stock", ["ui.router"])
   });
 
 
+
 angular.module('stock').component('yahooComponent', {
   templateUrl: "./js/templates/yahooComponent.html",
   controller: function yahooController(yahooService, $scope){
