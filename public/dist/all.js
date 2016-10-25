@@ -24,6 +24,7 @@ angular.module("stock")
   });
 
 
+
 angular.module('stock').component('yahooComponent', {
   templateUrl: "./js/templates/yahooComponent.html",
   controller: function yahooController(yahooService, $scope){

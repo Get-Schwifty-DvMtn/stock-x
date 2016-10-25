@@ -5,16 +5,16 @@ var session = require('express-session');
 var massive = require('massive');
 var yahooFinance = require('yahoo-finance');
 var yahooCtrl = require("./controller/yahooCtrl.js");
-// config.port, config.secret, config.nytAPI
 var config = require('./config.js');
 
-
+var massiveInstance = massive.connectSync({connectionString: config.connectionString});
 
 
 var app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
+app.use(cors());
 app.use(session({
   secret: config.secret,
   saveUninitialized: true,
@@ -22,8 +22,8 @@ app.use(session({
 }));
 
 
-// app.get("/tbh", nyTimesCtrl.getNews);
-
+app.set('db', massiveInstance);
+var db = app.get('db');
 
 app.get("/testhole", yahooCtrl.getStocks);
 
