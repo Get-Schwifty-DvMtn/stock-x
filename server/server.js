@@ -21,9 +21,14 @@ app.use(session({
   resave: true
 }));
 
+app.set('db', massiveInstance);
+var db = app.get('db');
+
+
 
 app.set('db', massiveInstance);
 var db = app.get('db');
+>>>>>>> master
 
 app.get("/testhole", yahooCtrl.getStocks);
 
