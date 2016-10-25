@@ -3,6 +3,7 @@ var db = app.get('db');
 
 module.exports = {
   getAllStocks: function(req, res) {
+    console.log("getAllStocks is working");
     db.get_all_stocks(function(err, stocks) {
       if(err) {
         res.status(400).json(err);
