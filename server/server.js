@@ -9,20 +9,20 @@ var yahooCtrl = require("./controller/yahooCtrl.js");
 var config = require('./config.js');
 
 
-
-
+var massiveInstance = massive.connectSync({connectionString: config.connectionString});
 
 var app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use(session({
   secret: config.secret,
   saveUninitialized: true,
   resave: true
 }));
 
-
+app.set('db', massiveInstance);
+var db = app.get('db');
 
 
 
