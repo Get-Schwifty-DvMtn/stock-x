@@ -3,7 +3,7 @@ angular.module('stock').component('selectStocksComponent', {
   controller: function selectStocksController(userStocksService, $scope){
 
     userStocksService.getAllStocks().then(function(res){
-      console.log(res.data);
+      console.log("select", res.data);
       $scope.all_stocks = res.data;
 
 
