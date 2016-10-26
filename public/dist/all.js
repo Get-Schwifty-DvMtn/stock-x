@@ -1,7 +1,7 @@
 angular.module("stock", ["ui.router"])
   .config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("/");
-    
+
     $stateProvider
     .state("home", {
       url: "/",
@@ -10,6 +10,10 @@ angular.module("stock", ["ui.router"])
     .state("createUser", {
       url: "/user/new",
       templateUrl: "./views/createUser.html"
+    })
+    .state("loginUser", {
+      url: "/user/login",
+      templateUrl: "./views/loginUser.html"
     })
     .state("profile", {
       url: "/user/:id",
