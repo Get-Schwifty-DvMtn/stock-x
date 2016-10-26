@@ -40,6 +40,43 @@ angular.module("stock")
     }
   });
 
+angular.module('stock').component('selectStocksComponent', {
+  templateUrl: "./js/templates/selectStocksComponent.html",
+  controller: function selectStocksController(userStocksService, $scope){
+
+    userStocksService.getAllStocks().then(function(res){
+      console.log("select", res.data);
+      $scope.all_stocks = res.data;
+
+
+
+    }); //closes userStocksService function
+
+  }, //closes controller
+  bindings: []
+
+});
+
+
+ngular.module('stock').component('starredStocksComponent', {
+  templateUrl: "./js/templates/starredStocksComponent.html",
+  controller: function starredStocksController(userStocksService, $scope, $stateParams){
+
+    userStocksService.getSavedStocks($stateParams.id)
+      .then(function(res){
+
+        // console.log("starred", res.data);
+        $scope.saved_stocks = res.data;
+
+
+
+    }); //closes selectStocksService function
+
+  }, //closes controller
+  bindings: []
+
+});
+
 
 angular.module('stock').component('yahooComponent', {
   templateUrl: "./js/templates/yahooComponent.html",
@@ -124,6 +161,18 @@ angular.module("stock")
       // },
     });
   };
+});
+
+angular.module("stock")
+  .service("selectStocksService", function($http){
+    this.getAllStocks = function(){
+      return $http.get("/getallstocks");
+    };
+    this.getSavedStocks = function(id){
+      return $http.get("/user/" + id + "/getsavedstocks");
+    };
+
+
 });
 
 angular.module("stock")
