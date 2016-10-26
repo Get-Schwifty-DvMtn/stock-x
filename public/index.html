@@ -1,60 +1,57 @@
-<!DOCTYPE html>
 <html ng-app="stock">
     <head>
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <link rel="stylesheet" href="dist/all.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <title>Stock-Erotic</title>
     </head>
     <body>
-
-        <div class="navicon">
-            <div class="toggle">
-                <span class="t1"></span>
-                <span class="t2"></span>
-                <span class="t3"></span>
+            <div class="navicon">
+                <div class="toggle">
+                    <span class="t1"></span>
+                    <span class="t2"></span>
+                    <span class="t3"></span>
+                </div>
             </div>
-        </div>
         <nav>
             <div class="nav-wrapper">
-                <h3>Stock-X</h3>
                 <ul>
-                    <li>
-                        <a>Trending Stocks</a>
+                    <li style="margin-bottom: 10px;">
+                        <a class='menu-header' href='#'>Menu</a>
                     </li>
                     <li>
-                        <a>My Stock</a>
+                        <a href='#'>Trending Stocks</a>
                     </li>
                     <li>
-                        <a>About Us</a>
+                        <a href='#'>My Stock</a>
                     </li>
                     <li>
-                        <a>Scwifty</a>
+                        <a href='#'>About Us</a>
                     </li>
                     <li>
-                        <a>Austin Nudes</a>
+                        <a href='#'>Scwifty</a>
+                    </li>
+                    <li>
+                        <a href='#'>Austin Nudes</a>
                     </li>
                 </ul>
             </div>
         </nav>
         <div class="wrapper">
-            <!-- <div class="wrapper-overlay"></div> -->
-            <!-- <div class="container">
-
-    	</div> -->
-
+            <div class="header"></div>
+            <span class='element'></span>
             <yahoo-component></yahoo-component>
-            <br>
-            <ny-times-component></ny-times-component>
+            <div class="wrapper-overlay">
+            </div>
+            <div class="container">
         </div>
-
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
         <script src="
 https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
         <script src="/styles/css/jquery.js"></script>
-
         <script src="https://d3js.org/d3.v4.js"></script>
         <script src="/dist/all.js"></script>
-
     </body>
 </html>
