@@ -29,8 +29,8 @@ angular.module("stock", ["ui.router"])
 
       templateUrl: "./views/profileStock.html"
     })
-    .state("profile.preferences", {
-      url: "/preferences",
+    .state("profile.pref", {
+      url: "/pref",
       templateUrl: "./views/pref.html"
     });
   });
