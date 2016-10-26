@@ -15,7 +15,7 @@ var cookieParser = require('cookie-parser');
 var massiveInstance = massive.connectSync({connectionString: config.connectionString});
 
 
-var app = express();
+var app = module.exports = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
@@ -38,13 +38,12 @@ app.use(flash());
 
 app.set('view engine', 'ejs');
 app.set('db', massiveInstance);
-var db = app.get('db');
 
-// var stockCtrl = require("./controller/stockCtrl.js");
+var stockCtrl = require("./controller/stockCtrl.js");
 
 
-// app.get("/getallstocks", stockCtrl.getAllStocks);
-//app.get("/user/:id/getsavedstocks", stockCtrl.getSavedStocks);
+app.get("/getallstocks", stockCtrl.getAllStocks);
+app.get("/user/:id/getsavedstocks", stockCtrl.getSavedStocks);
 app.get("/testhole", yahooCtrl.getStocks);
 
 app.listen(config.port, function(){
