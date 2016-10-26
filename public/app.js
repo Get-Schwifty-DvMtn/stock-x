@@ -13,7 +13,7 @@ angular.module("stock", ["ui.router"])
     })
     .state("loginUser", {
       url: "/user/login",
-      templateUrl: "./views/loginUser.ejs"
+      templateUrl: "./views/loginUser.html"
     })
     .state("profile", {
       url: "/user/:id",
