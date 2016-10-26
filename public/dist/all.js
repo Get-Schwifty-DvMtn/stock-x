@@ -17,17 +17,22 @@ angular.module("stock", ["ui.router"])
     })
     .state("profile", {
       url: "/user/:id",
+      abstract: true,
       templateUrl: "./views/profile.html"
     })
-    .state("profileStock", {
-      url: "/user/:id/:stock",
+    .state("profile.stockSummaries", {
+      url: "",
+      templateUrl: "./views/stockSummaries.html"
+    })
+    .state("profile.profileStock", {
+      url: "/stocks/:stockId",
+
       templateUrl: "./views/profileStock.html"
     })
-    .state("pref", {
-      url: "/user/:id/pref",
+    .state("profile.preferences", {
+      url: "/preferences",
       templateUrl: "./views/pref.html"
     });
-    //the rest of our states will go here
   });
 
 angular.module("stock")
@@ -62,7 +67,7 @@ angular.module('stock').component('selectStocksComponent', {
 });
 
 
-ngular.module('stock').component('starredStocksComponent', {
+angular.module('stock').component('starredStocksComponent', {
   templateUrl: "./js/templates/starredStocksComponent.html",
   controller: function starredStocksController(userStocksService, $scope, $stateParams){
 
