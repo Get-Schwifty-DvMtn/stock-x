@@ -23,6 +23,7 @@ gulp.task("sass", function(){
 
 gulp.task('watch', function() {
   gulp.watch('./public/styles/*.scss', ['sass']);
+  gulp.watch('./public/styles/**/*.scss', ['sass']);
   gulp.watch('./public/*.js', ['js']);
   gulp.watch('./public/js/*.js', ['js']);
   gulp.watch('./public/js/**/*.js', ['js']);
