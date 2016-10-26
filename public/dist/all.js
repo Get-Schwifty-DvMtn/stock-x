@@ -62,7 +62,7 @@ angular.module('stock').component('selectStocksComponent', {
 });
 
 
-ngular.module('stock').component('starredStocksComponent', {
+angular.module('stock').component('starredStocksComponent', {
   templateUrl: "./js/templates/starredStocksComponent.html",
   controller: function starredStocksController(userStocksService, $scope, $stateParams){
 
