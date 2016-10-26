@@ -54,7 +54,8 @@ a {
   outline: 0;
   font-family: 'Open Sans', sans-serif;
   color: #D7CEC7;
-  letter-spacing: .75px; }
+  letter-spacing: .75px;
+  text-decoration: none; }
 
 .header {
   width: 100%;
@@ -152,7 +153,11 @@ nav a {
 
 nav a:hover {
   padding-left: 50px;
-  color: #9c9c9c; }
+  color: #9c9c9c;
+  text-decoration: none; }
+
+a:hover, a:active {
+  text-decoration: none; }
 
 .nav-wrapper {
   position: fixed;
