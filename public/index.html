@@ -1,58 +1,54 @@
+<!DOCTYPE html>
 <html ng-app="stock">
     <head>
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <link rel="stylesheet" href="dist/all.css"/>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <title>Stock-Erotic</title>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+        <!-- load bootstrap css -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     </head>
     <body>
-            <div class="navicon">
-                <div class="toggle">
-                    <span class="t1"></span>
-                    <span class="t2"></span>
-                    <span class="t3"></span>
-                </div>
+        <div class="navicon">
+            <div class="toggle">
+                <span class="t1"></span>
+                <span class="t2"></span>
+                <span class="t3"></span>
             </div>
+        </div>
         <nav>
             <div class="nav-wrapper">
                 <ul>
                     <li style="margin-bottom: 10px;">
-                        <a class='menu-header' href='#'>Menu</a>
+                        <a class="menu-header" href="#">Menu</a>
                     </li>
                     <li>
-                        <a href='#'>Trending Stocks</a>
+                        <a href="#">Trending Stocks</a>
                     </li>
                     <li>
-                        <a href='#'>My Stock</a>
+                        <a href="#">My Stock</a>
                     </li>
                     <li>
-                        <a href='#'>About Us</a>
+                        <a href="#">About Us</a>
                     </li>
                     <li>
-                        <a href='#'>Scwifty</a>
+                        <a href="#">Scwifty</a>
                     </li>
                     <li>
-                        <a href='#'>Austin Nudes</a>
+                        <a href="#">Austin Nudes</a>
                     </li>
                 </ul>
             </div>
         </nav>
         <div class="wrapper">
-            <!-- <div class="wrapper-overlay"></div> -->
-            <!-- <div class="container">
-
-    	</div> -->
-        <ui-view></ui-view>
+            <ui-view></ui-view>
             <div class="header"></div>
-            <span class='element'></span>
+            <span class="element"></span>
 
             <yahoo-component></yahoo-component>
-            <div class="wrapper-overlay">
-            </div>
-            <div class="container">
-        </div>
+            <div class="wrapper-overlay"></div>
+            <div class="container"></div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
