@@ -57,7 +57,6 @@ passport.use(new GoogleStrategy({
        db.find_By_Id([profile.id], function (err, user) {
          if (!user[0]) {
            db.create_user([profile.id, profile.name.familyName, profile.name.givenName, profile.photos[0].value, accessToken], function(err, user) {
-                      console.log(user);
              return done(err, user[0]);
            })
 
@@ -100,9 +99,9 @@ app.get('/auth/google',
 //   login page.  Otherwise, the primary route function function will be called,
 //   which, in this example, will redirect the user to the home page.
 app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/loginUser' }),
+  passport.authenticate('google', { failureRedirect: '/#/' }),
   function(req, res) {
-    res.redirect('/#/profile');
+    res.redirect('/#/user/' + req.user.google_id);
   });
 
 
