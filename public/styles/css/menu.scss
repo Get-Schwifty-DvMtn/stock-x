@@ -13,6 +13,7 @@ a {
     font-family: 'Open Sans', sans-serif;
     color: $grain;
     letter-spacing: .75px;
+    text-decoration: none;
 }
 .header {
     width: 100%;
@@ -111,6 +112,10 @@ nav a {
 nav a:hover {
     padding-left: 50px;
     color: #9c9c9c;
+    text-decoration: none;
+}
+a:hover, a:active {
+    text-decoration: none;
 }
 // nav li:not(:last-child) {
     // border-bottom: 1px solid $blackBoard;
