@@ -35,6 +35,15 @@ app.use(passport.session());
 app.use(flash());
 
 
+
+
+
+app.set('view engine', 'ejs');
+app.set('db', massiveInstance);
+var db = app.get('db');
+var stockCtrl = require("./controller/stockCtrl.js");
+
+
 // Use the GoogleStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
 //   credentials (in this case, an accessToken, refreshToken, and Google
@@ -42,20 +51,35 @@ app.use(flash());
 passport.use(new GoogleStrategy({
     clientID: config.clientID,
     clientSecret: config.clientSecret,
-    callbackURL: "http://localhost:" + config.port + "/auth/google/callback"
+    callbackURL: config.callbackURL
   },
   function(accessToken, refreshToken, profile, done) {
-       User.findOrCreate({ googleId: profile.id }, function (err, user) {
-         return done(err, user);
+       db.find_By_Id([profile.id], function (err, user) {
+         if (!user[0]) {
+           db.create_user([profile.id, profile.name.familyName, profile.name.givenName, profile.photos[0].value, accessToken], function(err, user) {
+             return done(err, user[0]);
+           })
+
+         }
+
+         return done(err, user[0]);
        });
+
   }
 ));
 
+passport.serializeUser(function(user, done) {
+  // console.log(user + "user")
+  done(null, user.google_id);
+});
 
-app.set('view engine', 'ejs');
-app.set('db', massiveInstance);
+passport.deserializeUser(function(id, done) {
+  // console.log(id + "id");
+  db.find_By_Id([id], function(err, user) {
+    done(err, user);
+  });
+});
 
-var stockCtrl = require("./controller/stockCtrl.js");
 
 
 app.get("/getallstocks", stockCtrl.getAllStocks);
@@ -75,9 +99,9 @@ app.get('/auth/google',
 //   login page.  Otherwise, the primary route function function will be called,
 //   which, in this example, will redirect the user to the home page.
 app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/loginUser' }),
+  passport.authenticate('google', { failureRedirect: '/#/' }),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('/#/user/' + req.user.google_id);
   });
 
 
