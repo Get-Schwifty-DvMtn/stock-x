@@ -74,7 +74,7 @@ angular.module('stock').component('starredStocksComponent', {
     userStocksService.getSavedStocks($stateParams.id)
       .then(function(res){
 
-        // console.log("starred", res.data);
+        console.log("starred", res.data);
         $scope.saved_stocks = res.data;
 
 
