@@ -85,6 +85,7 @@ app.get('/getuserinfo/:id', userCtrl.getUserInfo);
 app.get("/getallstocks", stockCtrl.getAllStocks);
 app.get("/user/:id/getsavedstocks", stockCtrl.getSavedStocks);
 app.get("/testhole", yahooCtrl.getStocks);
+app.post("/snapshots", yahooCtrl.savedStocksSnapshot);
 // GET /auth/google
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in Google authentication will involve

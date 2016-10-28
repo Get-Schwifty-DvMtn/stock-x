@@ -14,7 +14,7 @@ module.exports = {
   },
 
   getSavedStocks: function(req, res) {
-    db.get_saved_stocks([req.params.id], function(err, stocks) {
+    db.get_saved_stocks(req.params.id, function(err, stocks) {
       if(err) {
         res.status(400).json(err);
       } else {
