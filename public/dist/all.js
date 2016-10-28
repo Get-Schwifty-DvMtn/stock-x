@@ -76,10 +76,13 @@ angular.module('stock').component('starredStocksComponent', {
 
         console.log("starred", res.data);
         $scope.saved_stocks = res.data;
-
-
-
     }); //closes selectStocksService function
+  userStocksService.getUserInfo($stateParams.id).then(function(res){
+    console.log(res);
+    $scope.firstName= res.data.firstName;
+    $scope.lastName= res.data.lastName;
+    $scope.userPic= res.data.pic;
+  });
 
   }, //closes controller
   bindings: []
@@ -173,14 +176,16 @@ angular.module("stock")
 });
 
 angular.module("stock")
-  .service("selectStocksService", function($http){
+  .service("userStocksService", function($http){
     this.getAllStocks = function(){
       return $http.get("/getallstocks");
     };
     this.getSavedStocks = function(id){
       return $http.get("/user/" + id + "/getsavedstocks");
     };
-
+    this.getUserInfo = function(id){
+      return $http.get("getuserinfo/"+id);
+    };
 
 });
 
