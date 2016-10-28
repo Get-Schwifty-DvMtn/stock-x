@@ -3,6 +3,7 @@ $blackBoard: #565656;
 $oxblood: #76323F;
 $tan: #C09F80;
 $menuFont: 'Open Sans', sans-serif;
+
 *, *:before, *:after {
     box-sizing: border-box;
 }
@@ -156,6 +157,12 @@ a:hover, a:active {
     padding: 30px;
     cursor: pointer;
     z-index: 999;
+}
+.btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 30px;
 }
 .navicon.active {
     left: 300px;
