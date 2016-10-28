@@ -19,8 +19,17 @@ a {
     width: 100%;
     height: 70px;
     background-color: #fff;
-    position: relative;
+    position: fixed;
     z-index: 101;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.header.active {
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    left: 300px;
 }
 .no-scroll {
     overflow: hidden;
@@ -141,7 +150,7 @@ a:hover, a:active {
 }
 /* Navicon */
 .navicon {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     padding: 30px;
@@ -197,7 +206,7 @@ a:hover, a:active {
     animation: blink 0.7s infinite;
 }
 .element {
-    margin-top: 25px;
+    margin-top: 70px;
     padding: 0px 200px;
     font-size: 50px;
     font-family: impact;
