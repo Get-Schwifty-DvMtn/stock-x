@@ -42,7 +42,7 @@ app.set('view engine', 'ejs');
 app.set('db', massiveInstance);
 var db = app.get('db');
 var stockCtrl = require("./controller/stockCtrl.js");
-
+var userCtrl = require("./controller/userCtrl.js");
 
 // Use the GoogleStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
@@ -56,9 +56,9 @@ passport.use(new GoogleStrategy({
   function(accessToken, refreshToken, profile, done) {
        db.find_By_Id([profile.id], function (err, user) {
          if (!user[0]) {
-           db.create_user([profile.id, profile.name.familyName, profile.name.givenName, profile.photos[0].value, accessToken], function(err, user) {
+           db.create_user([profile.id, profile.name.familyName, profile.name.givenName, profile.photos[0].value + '0', accessToken], function(err, user) {
              return done(err, user[0]);
-           })
+           });
 
          }
 
@@ -81,7 +81,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 
-
+app.get('/getuserinfo/:id', userCtrl.getUserInfo);
 app.get("/getallstocks", stockCtrl.getAllStocks);
 app.get("/user/:id/getsavedstocks", stockCtrl.getSavedStocks);
 app.get("/testhole", yahooCtrl.getStocks);
