@@ -58,7 +58,7 @@ passport.use(new GoogleStrategy({
          if (!user[0]) {
            db.create_user([profile.id, profile.name.familyName, profile.name.givenName, profile.photos[0].value + '0', accessToken], function(err, user) {
              return done(err, user[0]);
-           })
+           });
 
          }
 
