@@ -7,7 +7,7 @@ var date = today.getDate();
 
 var todayFormatted = year + "-" + (month + 1) + "-" + date;
 //test
-var SYMBOLS = [
+var genericSYMBOLS = [
   'AAPL',
   'AMZN',
   'GOOGL',
@@ -18,8 +18,8 @@ var SYMBOLS = [
 module.exports = {
   getStocks: function(req, res) {
     yahooFinance.historical({
-      symbols: SYMBOLS,
-      from: '2014-10-17',
+      symbols: genericSYMBOLS,
+      from: '2015-10-17',
       to: todayFormatted,
       // period: 'd'  // 'd' (daily), 'w' (weekly), 'm' (monthly), 'v' (dividends only)
     }, function (err, quotes) {
@@ -29,6 +29,19 @@ module.exports = {
       else {
         res.status(200).json(quotes);
       }
+    });
+  },
+
+  savedStocksSnapshot: function(req, res) {
+    console.log('req.body',req.body);
+    yahooFinance.snapshot({
+      symbols: req.body.symbols,
+      fields: ['s', 'n', 'a', 'c1', 'p2', 'w1']
+    }, function(err, snapshot) {
+      if (err) {
+        res.status(400).json(err);
+      } else
+      res.status(200).json(snapshot);
     });
   }
 };
