@@ -171,7 +171,7 @@ angular.module('stock').component('starredStocksComponent', {
     bindings: []
 
 })
-// 
+//
 // .controller('testCtrl', function($scope, $stateParams) {
 //
 //   console.log("testCtrl", $stateParams);
@@ -180,10 +180,10 @@ angular.module('stock').component('starredStocksComponent', {
 
 angular.module('stock').component('yahooComponent', {
   templateUrl: "./js/templates/yahooComponent.html",
-  controller: function yahooController(yahooService, $stateParams, $scope){
+  controller: function yahooController(yahooService,nyTimesService, $stateParams, $scope){
     yahooService.getStocks($stateParams.stockId).then(function(res){
       $scope.stockData = res.data;
-      console.log(res.data);
+      // console.log(res.data);
 
       var data13 = [];
       $scope.stockData.map(function(data){
@@ -237,7 +237,17 @@ angular.module('stock').component('yahooComponent', {
             .attr("class", "line")
             .attr("d", line);
 });
-
+$scope.getNewsDay = function(){
+  var companyData = {
+    company: "apple stock",
+    begin: "20160804",
+    end: "20161031"
+  };
+  nyTimesService.getNews(companyData).then(function(res){
+    console.log(res.data.response.docs);
+    $scope.news = res.data.response.docs;
+  });
+};
   },
   bindings: {
 
@@ -246,21 +256,13 @@ angular.module('stock').component('yahooComponent', {
 
 angular.module("stock")
   .service("nyTimesService", function($http){
-  this.getNews = function(){
-    return $http({
-      method: "GET",
-      // url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
-      url: "http://api.nytimes.com/svc/search/v2/articlesearch.json?fq=romney&facet_field=day_of_week&begin_date=20120101&end_date=20120101&api-key=8c027c7e64c74f42a29665437c7db2a7",
-      // qs: {
-      //   'api-key': config.nytAPI,
-      //   'q': "Apple",
-      //   'fq': "news_desk:(Business)",
-      //   'begin_date': "20161022",
-      //   'end_date': "20161024",
-      //   'sort': "newest",
-      //   'fl': "web_url,headline,snippet"
-      // },
-    });
+
+  this.getNews = function(companyData){
+  return $http.post("/stocknews", companyData);
+    // return $http({
+    //   method: "GET",
+    //   url: "http://api.nytimes.com/svc/search/v2/articlesearch.json?fq=romney&facet_field=day_of_week&begin_date=20120101&end_date=20120101&api-key=8c027c7e64c74f42a29665437c7db2a7",
+    // });
   };
 });
 

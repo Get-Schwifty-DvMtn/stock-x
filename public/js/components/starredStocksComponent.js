@@ -59,7 +59,7 @@ angular.module('stock').component('starredStocksComponent', {
     bindings: []
 
 })
-// 
+//
 // .controller('testCtrl', function($scope, $stateParams) {
 //
 //   console.log("testCtrl", $stateParams);
