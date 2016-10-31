@@ -27,7 +27,7 @@ angular.module("stock", ["ui.router"])
     .state("profile.profileStock", {
       url: "/stocks/:stockId",
       templateUrl: "./views/profileStock.html",
-      controller: 'testCtrl'
+      // controller: 'testCtrl'
     })
     .state("profile.pref", {
       url: "/pref",
@@ -36,6 +36,7 @@ angular.module("stock", ["ui.router"])
   });
 
 angular.module('stock').component('headerComponent', {
+<<<<<<< HEAD
   templateUrl: "./js/templates/headerComponent.html"
 
   });
@@ -44,6 +45,25 @@ angular.module('stock').component('headerComponent', {
      return {
          restrict: "EA",
          link: function(scope, elem, attr) {
+=======
+    templateUrl: "./js/templates/headerComponent.html",
+    controller: function headerController(userStocksService, yahooService, $scope, $stateParams) {
+    setTimeout(function() {
+            userStocksService.getUserInfo($stateParams.id).then(function(res) {
+                $scope.firstName = res.data.firstName;
+                $scope.lastName = res.data.lastName;
+                $scope.userPic = res.data.pic;
+            });
+          }, 50);
+        }
+      });
+
+
+angular.module('stock').directive('animation', function() {
+    return {
+        restrict: "EA",
+        link: function(scope, elem, attr) {
+>>>>>>> a2714f5b176590ef9d2b4e870c819ee0fbc69696
             //  $(".navicon").click(function() {
             //
             //  });
@@ -60,9 +80,15 @@ angular.module('stock').component('headerComponent', {
             //      $(".wrapper-overlay").removeClass("active");
             //      $("body").removeClass("no-scroll");
             //  });
+<<<<<<< HEAD
          }
      }
   });
+=======
+        }
+    };
+});
+>>>>>>> a2714f5b176590ef9d2b4e870c819ee0fbc69696
 
 angular.module('stock').component('navComponent', {
   templateUrl: "./js/templates/navComponent.html"
@@ -102,23 +128,43 @@ angular.module('stock').component('selectStocksComponent', {
 
 
 angular.module('stock').component('starredStocksComponent', {
+<<<<<<< HEAD
+    templateUrl: "./js/templates/starredStocksComponent.html",
+    controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams) {
+
+        userStocksService.getSavedStocks($stateParams.id).then(function(res) {
+            // console.log("starred", res.data);
+=======
   templateUrl: "./js/templates/starredStocksComponent.html",
   controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams){
     console.log($stateParams);
     userStocksService.getSavedStocks($stateParams.id)
       .then(function(res){
-        // console.log("starred", res.data);
+        console.log("starred", res.data);
+>>>>>>> master
 
-
-        //getting customers saved stocks for yahoo snaphsot
-        var savedStockSymbols = {
-              symbols: []
+            //getting customers saved stocks for yahoo snaphsot
+            var savedStockSymbols = {
+                symbols: []
             };
+<<<<<<< HEAD
+            //passing saved stocks into a new array
+            for (var i = 0; i < res.data.length; i++) {
+                savedStockSymbols.symbols.push(res.data[i].company_symbol);
+            }
+            // console.log(savedStockSymbols);
+            //sending new array to backend for an api call
+            yahooService.getSnapshots(savedStockSymbols).then(function(res) {
+                $scope.saved_stocks = res.data;
+            }, function(err) {
+                console.log(err);
+            });
+=======
         //passing saved stocks into a new array
         for (var i = 0; i < res.data.length; i++) {
           savedStockSymbols.symbols.push(res.data[i].company_symbol);
         }
-        // console.log(savedStockSymbols);
+        console.log(savedStockSymbols);
         //sending new array to backend for an api call
         yahooService.getSnapshots(savedStockSymbols)
         .then(function(res){
@@ -127,6 +173,7 @@ angular.module('stock').component('starredStocksComponent', {
         }, function(err) {
             console.log(err);
         });
+<<<<<<< HEAD
 
         // console.log(res.data);
     }); //closes selectStocksService function
@@ -136,16 +183,28 @@ angular.module('stock').component('starredStocksComponent', {
     $scope.lastName= res.data.lastName;
     $scope.userPic= res.data.pic;
   });
+=======
+>>>>>>> master
 
-  }, //closes controller
-  bindings: []
+            // console.log(res.data);
+        }); //closes selectStocksService function
+        userStocksService.getUserInfo($stateParams.id).then(function(res) {
+            // console.log(res);
+            $scope.firstName = res.data.firstName;
+            $scope.lastName = res.data.lastName;
+            $scope.userPic = res.data.pic;
+        });
+>>>>>>> a2714f5b176590ef9d2b4e870c819ee0fbc69696
+
+    }, //closes controller
+    bindings: []
 
 })
-
-.controller('testCtrl', function($scope, $stateParams) {
-
-  console.log($stateParams);
-});
+// 
+// .controller('testCtrl', function($scope, $stateParams) {
+//
+//   console.log("testCtrl", $stateParams);
+// });
 
 
 angular.module('stock').component('yahooComponent', {
@@ -251,11 +310,11 @@ angular.module("stock")
 angular.module("stock")
   .service("yahooService", function($http){
   this.getStocks = function(stockId){
-    console.log('yahooService', stockId);
+    // console.log('yahooService', stockId);
     return $http.get("/testhole/" + stockId);
   };
   this.getSnapshots = function(symbols) {
-    // console.log(symbols);
+    // console.log("service snapshots", symbols);
     return $http.post("/snapshots", symbols);
   };
 
