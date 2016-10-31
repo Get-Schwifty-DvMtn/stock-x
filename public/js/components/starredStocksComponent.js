@@ -4,7 +4,7 @@ angular.module('stock').component('starredStocksComponent', {
     console.log($stateParams);
     userStocksService.getSavedStocks($stateParams.id)
       .then(function(res){
-        // console.log("starred", res.data);
+        console.log("starred", res.data);
 
 
         //getting customers saved stocks for yahoo snaphsot
@@ -15,7 +15,7 @@ angular.module('stock').component('starredStocksComponent', {
         for (var i = 0; i < res.data.length; i++) {
           savedStockSymbols.symbols.push(res.data[i].company_symbol);
         }
-        // console.log(savedStockSymbols);
+        console.log(savedStockSymbols);
         //sending new array to backend for an api call
         yahooService.getSnapshots(savedStockSymbols)
         .then(function(res){
@@ -38,8 +38,8 @@ angular.module('stock').component('starredStocksComponent', {
   bindings: []
 
 })
-
-.controller('testCtrl', function($scope, $stateParams) {
-
-  console.log($stateParams);
-});
+// 
+// .controller('testCtrl', function($scope, $stateParams) {
+//
+//   console.log("testCtrl", $stateParams);
+// });
