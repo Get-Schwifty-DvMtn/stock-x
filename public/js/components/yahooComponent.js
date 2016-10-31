@@ -1,10 +1,10 @@
 
 angular.module('stock').component('yahooComponent', {
   templateUrl: "./js/templates/yahooComponent.html",
-  controller: function yahooController(yahooService, $stateParams, $scope){
+  controller: function yahooController(yahooService,nyTimesService, $stateParams, $scope){
     yahooService.getStocks($stateParams.stockId).then(function(res){
       $scope.stockData = res.data;
-      console.log(res.data);
+      // console.log(res.data);
 
       var data13 = [];
       $scope.stockData.map(function(data){
@@ -58,7 +58,17 @@ angular.module('stock').component('yahooComponent', {
             .attr("class", "line")
             .attr("d", line);
 });
-
+$scope.getNewsDay = function(){
+  var companyData = {
+    company: "apple stock",
+    begin: "20160804",
+    end: "20161031"
+  };
+  nyTimesService.getNews(companyData).then(function(res){
+    console.log(res.data.response.docs);
+    $scope.news = res.data.response.docs;
+  });
+};
   },
   bindings: {
 
