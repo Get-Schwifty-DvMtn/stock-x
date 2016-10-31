@@ -1,12 +1,13 @@
 
 angular.module('stock').component('yahooComponent', {
   templateUrl: "./js/templates/yahooComponent.html",
-  controller: function yahooController(yahooService, $scope){
-    yahooService.getStocks().then(function(res){
+  controller: function yahooController(yahooService, $stateParams, $scope){
+    yahooService.getStocks($stateParams.stockId).then(function(res){
       $scope.stockData = res.data;
+      console.log(res.data);
 
       var data13 = [];
-      $scope.stockData.AAPL.map(function(data){
+      $scope.stockData.map(function(data){
         data13.push({"date": new Date(data.date), "close": data.close});
 
       });
