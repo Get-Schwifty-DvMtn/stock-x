@@ -26,8 +26,8 @@ angular.module("stock", ["ui.router"])
     })
     .state("profile.profileStock", {
       url: "/stocks/:stockId",
-
-      templateUrl: "./views/profileStock.html"
+      templateUrl: "./views/profileStock.html",
+      controller: 'testCtrl'
     })
     .state("profile.pref", {
       url: "/pref",
