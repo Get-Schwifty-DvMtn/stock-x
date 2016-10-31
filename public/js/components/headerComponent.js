@@ -1,12 +1,21 @@
 angular.module('stock').component('headerComponent', {
-  templateUrl: "./js/templates/headerComponent.html"
+    templateUrl: "./js/templates/headerComponent.html",
+    controller: function headerController(userStocksService, yahooService, $scope, $stateParams) {
+    setTimeout(function() {
+            userStocksService.getUserInfo($stateParams.id).then(function(res) {
+                $scope.firstName = res.data.firstName;
+                $scope.lastName = res.data.lastName;
+                $scope.userPic = res.data.pic;
+            });
+          }, 50);
+        }
+      });
 
-  });
 
-  angular.module('stock').directive('animation', function() {
-     return {
-         restrict: "EA",
-         link: function(scope, elem, attr) {
+angular.module('stock').directive('animation', function() {
+    return {
+        restrict: "EA",
+        link: function(scope, elem, attr) {
             //  $(".navicon").click(function() {
             //
             //  });
@@ -23,6 +32,6 @@ angular.module('stock').component('headerComponent', {
             //      $(".wrapper-overlay").removeClass("active");
             //      $("body").removeClass("no-scroll");
             //  });
-         }
-     }
-  });
+        }
+    };
+});
