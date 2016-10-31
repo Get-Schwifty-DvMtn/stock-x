@@ -94,43 +94,60 @@ angular.module("stock")
 
 angular.module('stock').component('selectStocksComponent', {
   templateUrl: "./js/templates/selectStocksComponent.html",
-  controller: function selectStocksController(userStocksService, $scope){
-
+  controller: function selectStocksController(userStocksService, $scope, $stateParams, $state){
+console.log("these are the state Params: ", $stateParams);
     userStocksService.getAllStocks().then(function(res){
       console.log("select", res.data);
       $scope.all_stocks = res.data;
+    });  //closes userStocksService function
+
+    $scope.addNewFavorite = function(stock) {
+
+      userStocksService.addNewFavorite([$stateParams.id, stock])
+        .then(function(res) {
+          console.log("newStock - res",res);
+          console.log("new stock symbol is: ", stock);
+          // $state.go($state.current, {}, {reload: true});
+          // $window.location.reload();
+          $state.transitionTo($state.current, $stateParams, {
+            reload: true,
+            inherit: false,
+            notify: true
+          });
+
+      });
+
+    };
 
 
 
-    }); //closes userStocksService function
 
   }, //closes controller
   bindings: []
 
 });
 
+angular.module('stock').component('settingsComponent', {
+  templateUrl: "./js/templates/selectStocksComponent.html",
+  controller: function selectStocksController(userStocksService, $scope){
+
+  }, //closes controller
+  bindings: []
+
+});
 
 angular.module('stock').component('starredStocksComponent', {
-<<<<<<< HEAD
-    templateUrl: "./js/templates/starredStocksComponent.html",
-    controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams) {
-
-        userStocksService.getSavedStocks($stateParams.id).then(function(res) {
-            // console.log("starred", res.data);
-=======
   templateUrl: "./js/templates/starredStocksComponent.html",
   controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams){
     console.log($stateParams);
     userStocksService.getSavedStocks($stateParams.id)
       .then(function(res){
         console.log("starred", res.data);
->>>>>>> master
 
             //getting customers saved stocks for yahoo snaphsot
             var savedStockSymbols = {
                 symbols: []
             };
-<<<<<<< HEAD
             //passing saved stocks into a new array
             for (var i = 0; i < res.data.length; i++) {
                 savedStockSymbols.symbols.push(res.data[i].company_symbol);
@@ -142,23 +159,7 @@ angular.module('stock').component('starredStocksComponent', {
             }, function(err) {
                 console.log(err);
             });
-=======
-        //passing saved stocks into a new array
-        for (var i = 0; i < res.data.length; i++) {
-          savedStockSymbols.symbols.push(res.data[i].company_symbol);
-        }
-        console.log(savedStockSymbols);
-        //sending new array to backend for an api call
-        yahooService.getSnapshots(savedStockSymbols)
-        .then(function(res){
-          console.log(res.data);
-          $scope.saved_stocks = res.data;
-        }, function(err) {
-            console.log(err);
-        });
->>>>>>> master
 
-            // console.log(res.data);
         }); //closes selectStocksService function
         userStocksService.getUserInfo($stateParams.id).then(function(res) {
             // console.log(res);
@@ -170,8 +171,8 @@ angular.module('stock').component('starredStocksComponent', {
     }, //closes controller
     bindings: []
 
-})
-// 
+});
+//
 // .controller('testCtrl', function($scope, $stateParams) {
 //
 //   console.log("testCtrl", $stateParams);
@@ -275,7 +276,9 @@ angular.module("stock")
     this.getUserInfo = function(id){
       return $http.get("getuserinfo/"+id);
     };
-
+    this.addNewFavorite = function(symbol){
+      return $http.post("/addnewfavorite", symbol);
+    };
 });
 
 angular.module("stock")
