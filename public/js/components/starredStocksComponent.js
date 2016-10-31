@@ -1,7 +1,7 @@
 angular.module('stock').component('starredStocksComponent', {
   templateUrl: "./js/templates/starredStocksComponent.html",
   controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams){
-
+    console.log($stateParams);
     userStocksService.getSavedStocks($stateParams.id)
       .then(function(res){
         // console.log("starred", res.data);
@@ -37,4 +37,9 @@ angular.module('stock').component('starredStocksComponent', {
   }, //closes controller
   bindings: []
 
+})
+
+.controller('testCtrl', function($scope, $stateParams) {
+
+  console.log($stateParams);
 });

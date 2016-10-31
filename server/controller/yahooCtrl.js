@@ -7,18 +7,19 @@ var date = today.getDate();
 
 var todayFormatted = year + "-" + (month + 1) + "-" + date;
 //test
-var genericSYMBOLS = [
-  'AAPL',
-  'AMZN',
-  'GOOGL',
-  'YHOO'
-];
+
 
 
 module.exports = {
   getStocks: function(req, res) {
+    console.log('yahooCtrl', req.params);
+    if (req.params.stockId != 'undefined') {
+      var stock = req.params.stockId; //this will be a variable for the selected stock
+    } else {
+      stock = 'ADBE';
+    }
     yahooFinance.historical({
-      symbols: genericSYMBOLS,
+      symbol: stock,
       from: '2015-10-17',
       to: todayFormatted,
       // period: 'd'  // 'd' (daily), 'w' (weekly), 'm' (monthly), 'v' (dividends only)
