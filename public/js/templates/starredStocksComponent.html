@@ -1,9 +1,5 @@
 <div class="starred-stocks-container">
-  <!-- {{firstName}}
-  {{lastName}}
-  <img src="{{userPic}}" alt=""> -->
-
-  <div class="starred-stocks-list-container conatiner" ng-repeat="stock in saved_stocks">
+  <div class="starred-stocks-list-container" ng-repeat="stock in saved_stocks">
     <a ui-sref="profile.profileStock({stockId: stock.symbol})">
       <ul class="starred-stocks-list col-md-3" >
         <li class="row">{{stock.symbol}}</li>

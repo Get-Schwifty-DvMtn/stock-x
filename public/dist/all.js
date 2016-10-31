@@ -27,7 +27,7 @@ angular.module("stock", ["ui.router"])
     .state("profile.profileStock", {
       url: "/stocks/:stockId",
       templateUrl: "./views/profileStock.html",
-      controller: 'testCtrl'
+      // controller: 'testCtrl'
     })
     .state("profile.pref", {
       url: "/pref",
@@ -36,23 +36,32 @@ angular.module("stock", ["ui.router"])
   });
 
 angular.module('stock').component('headerComponent', {
-  templateUrl: "./js/templates/headerComponent.html",
-  controller: function headerController(userStocksService, $scope, $stateParams, $state){
+  templateUrl: "./js/templates/headerComponent.html"
 
+  });
 
-    //   var getUserInfo = function(){ userStocksService.getUserInfo($stateParams.id).then(function(res){
-    //     console.log(res);
-    //     // $scope.firstName= res.data.firstName;
-    //     // $scope.lastName= res.data.lastName;
-    //     // $scope.userPic= res.data.pic;
-    //   });
-    // };
-    // if ($stateParams.id){
-    //   console.log("yessir!");
-    //   getUserInfo();
-    // }
-  }
-
+  angular.module('stock').directive('animation', function() {
+     return {
+         restrict: "EA",
+         link: function(scope, elem, attr) {
+            //  $(".navicon").click(function() {
+            //
+            //  });
+            //  $('body').on('click', '.navicon', function() {
+            //     $(this).toggleClass("active");
+            //     $(".wrapper").toggleClass("active");
+            //     $(".wrapper-overlay").toggleClass("active");
+            //     $("body").toggleClass("no-scroll");
+            // });
+            // $('body').on('click', '.navicon', function() {
+            //     $(".wrapper").click(function() {
+            //      $(this).removeClass("active");
+            //      $(".navicon").removeClass("active");
+            //      $(".wrapper-overlay").removeClass("active");
+            //      $("body").removeClass("no-scroll");
+            //  });
+         }
+     }
   });
 
 angular.module('stock').component('navComponent', {
@@ -98,7 +107,7 @@ angular.module('stock').component('starredStocksComponent', {
     console.log($stateParams);
     userStocksService.getSavedStocks($stateParams.id)
       .then(function(res){
-        // console.log("starred", res.data);
+        console.log("starred", res.data);
 
 
         //getting customers saved stocks for yahoo snaphsot
@@ -109,33 +118,34 @@ angular.module('stock').component('starredStocksComponent', {
         for (var i = 0; i < res.data.length; i++) {
           savedStockSymbols.symbols.push(res.data[i].company_symbol);
         }
-        // console.log(savedStockSymbols);
+        console.log(savedStockSymbols);
         //sending new array to backend for an api call
-        // yahooService.getSnapshots(savedStockSymbols)
-        // .then(function(res){
-        //   console.log(res.data);
-        //   $scope.saved_stocks = res.data;
-        // }, function(err) {
-        //     console.log(err);
-        // });
+        yahooService.getSnapshots(savedStockSymbols)
+        .then(function(res){
+          console.log(res.data);
+          $scope.saved_stocks = res.data;
+        }, function(err) {
+            console.log(err);
+        });
 
         // console.log(res.data);
     }); //closes selectStocksService function
-  // userStocksService.getUserInfo($stateParams.id).then(function(res){
-  //   $scope.firstName= res.data.firstName;
-  //   $scope.lastName= res.data.lastName;
-  //   $scope.userPic= res.data.pic;
-  // });
+  userStocksService.getUserInfo($stateParams.id).then(function(res){
+    // console.log(res);
+    $scope.firstName= res.data.firstName;
+    $scope.lastName= res.data.lastName;
+    $scope.userPic= res.data.pic;
+  });
 
   }, //closes controller
   bindings: []
 
 })
-
-.controller('testCtrl', function($scope, $stateParams) {
-
-  console.log($stateParams);
-});
+// 
+// .controller('testCtrl', function($scope, $stateParams) {
+//
+//   console.log("testCtrl", $stateParams);
+// });
 
 
 angular.module('stock').component('yahooComponent', {
@@ -241,11 +251,11 @@ angular.module("stock")
 angular.module("stock")
   .service("yahooService", function($http){
   this.getStocks = function(stockId){
-    console.log('yahooService', stockId);
+    // console.log('yahooService', stockId);
     return $http.get("/testhole/" + stockId);
   };
   this.getSnapshots = function(symbols) {
-    // console.log(symbols);
+    // console.log("service snapshots", symbols);
     return $http.post("/snapshots", symbols);
   };
 
