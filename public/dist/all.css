@@ -48,6 +48,10 @@ table {
 *, *:before, *:after {
   box-sizing: border-box; }
 
+@font-face {
+  font-family: "big-noodle";
+  src: url("../styles/images/big_noodle_titling.ttf") format("truetype"); }
+
 a {
   transition: 0.2s all ease-in-out;
   -webkit-transition: 0.2s all ease-in-out;
@@ -66,12 +70,21 @@ a {
   top: 0;
   left: 0;
   -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out; }
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: space-around; }
+
+.btn {
+  padding: 24px !important; }
 
 .header.active {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   left: 300px; }
+
+.stock-hub-picture {
+  height: 50px;
+  width: 50px; }
 
 .no-scroll {
   overflow: hidden; }
@@ -254,11 +267,12 @@ a:hover, a:active {
   margin-top: 70px;
   padding: 0px 200px;
   font-size: 50px;
-  font-family: impact;
+  font-family: big-noodle;
   display: flex;
   justify-content: center;
   color: #76323F;
-  height: 10vh; }
+  height: 10vh;
+  text-align: center; }
 
 .yahooComponent {
   display: flex;
