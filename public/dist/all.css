@@ -196,6 +196,12 @@ a:hover, a:active {
   cursor: pointer;
   z-index: 999; }
 
+.btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 30px; }
+
 .navicon.active {
   left: 300px; }
 
