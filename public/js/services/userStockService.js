@@ -9,5 +9,7 @@ angular.module("stock")
     this.getUserInfo = function(id){
       return $http.get("getuserinfo/"+id);
     };
-
+    this.addNewFavorite = function(symbol){
+      return $http.post("/addnewfavorite", symbol);
+    };
 });
