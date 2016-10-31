@@ -5,6 +5,7 @@ var session = require('express-session');
 var massive = require('massive');
 var yahooFinance = require('yahoo-finance');
 var yahooCtrl = require("./controller/yahooCtrl.js");
+var nytCtrl = require("./controller/nytCtrl.js");
 var config = require('./config.js');
 var passport = require('passport');
 var flash = require('connect-flash');
