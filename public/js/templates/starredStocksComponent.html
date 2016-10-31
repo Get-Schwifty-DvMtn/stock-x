@@ -1,4 +1,5 @@
-<div class="starred-stocks-container">
+<div class="starred-stocks-container container">
+  <h3>Your current watchlist: </h3>
   <div class="starred-stocks-list-container" ng-repeat="stock in saved_stocks">
     <a ui-sref="profile.profileStock({stockId: stock.symbol})">
       <ul class="starred-stocks-list col-md-3" >
