@@ -23,4 +23,8 @@ module.exports = {
     });
   },
 
+  addFavoriteStock: function(req, res) {
+    db.add_favorite_stock()
+  }
+
 };
