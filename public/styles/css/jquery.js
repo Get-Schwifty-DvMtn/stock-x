@@ -9,7 +9,7 @@ $(document).ready(function () {
 	});
 
 	$('.wrapper').on('click', function() {
-		console.log('fired')
+		// console.log('fired')
 		$(this).removeClass("active");
 		$(".navicon").removeClass("active");
 		$('.header').removeClass("active");
