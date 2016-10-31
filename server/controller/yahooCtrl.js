@@ -34,7 +34,7 @@ module.exports = {
   },
 
   savedStocksSnapshot: function(req, res) {
-    console.log('req.body',req.body);
+    console.log('yhooCtrl - req.body',req.body);
     yahooFinance.snapshot({
       symbols: req.body.symbols,
       fields: ['s', 'n', 'a', 'c1', 'p2', 'w1']
