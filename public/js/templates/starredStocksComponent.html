@@ -1,17 +1,17 @@
-<div class="starred-stocks-container container">
+<div class="starred-stocks-container">
   <h3>Your current watchlist: </h3>
   <div class="starred-stocks-list-container" ng-repeat="stock in saved_stocks">
     <a ui-sref="profile.profileStock({stockId: stock.symbol})">
-      <ul class="starred-stocks-list col-md-3" >
+      <ul class="starred-stocks-list col-xs-3" >
         <li class="row">{{stock.symbol}}</li>
       </ul>
       <ul class="col-md-3">
         <li class="row">{{stock.name}}</li>
       </ul>
-      <ul class="col-md-3">
+      <ul class="col-xs-3">
         <li class="row">{{stock.ask}}</li>
       </ul>
-      <ul class="col-md-3">
+      <ul class="col-sm-3">
         <li class="row">{{stock.change}} (in USD$)</li>
       </ul>
     </a>
