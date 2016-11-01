@@ -2,6 +2,7 @@ $grain: #D7CEC7;
 $blackBoard: #565656;
 $oxblood: #76323F;
 $tan: #C09F80;
+$white: #fff;
 $menuFont: 'Open Sans', sans-serif;
 
 *, *:before, *:after {
@@ -70,6 +71,32 @@ html, body {
     left: 0;
     z-index: 3;
     background-color: $grain;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 5px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: black;
+  stroke: steelblue;
 }
 .wrapper.active {
     left: 300px;
@@ -225,6 +252,11 @@ a:hover, a:active {
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
 }
+
+ //////////////////////////////////
+ /////////// HOME VIEW ////////////
+ //////////////////////////////////
+
 .element {
     margin-top: 70px;
     padding: 0px 200px;
@@ -239,6 +271,11 @@ a:hover, a:active {
 .yahooComponent {
     display: flex;
     justify-content: center;
+}
+.about-us-wrapper {
+    background-color: $white;
+    height: 45vh;
+    width: 100%;
 }
 .typed-cursor{
     opacity: 1;

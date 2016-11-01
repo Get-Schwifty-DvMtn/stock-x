@@ -16,13 +16,6 @@ $(document).ready(function () {
 		$(".wrapper-overlay").removeClass("active");
 		$("body").removeClass("no-scroll");
 	});
-	// $(".wrapper").click(function() {
-	// 	console.log('fired')
-	// 	$(this).removeClass("active");
-	// 	$(".navicon").removeClass("active");
-	// 	$(".wrapper-overlay").removeClass("active");
-	// 	$("body").removeClass("no-scroll");
-	// });
 
 
 	$(function(){
