@@ -1,4 +1,4 @@
-public/js/components/selectStocksComponent.js angular.module('stock').component('starredStocksComponent', {
+angular.module('stock').component('starredStocksComponent', {
     templateUrl: "./js/templates/starredStocksComponent.html",
     controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams, $state) {
       var id = $stateParams.id;
