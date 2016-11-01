@@ -137,7 +137,6 @@ angular.module('stock').component('settingsComponent', {
 });
 
 angular.module('stock').component('starredStocksComponent', {
-<<<<<<< HEAD
     templateUrl: "./js/templates/starredStocksComponent.html",
     controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams) {
 
@@ -171,15 +170,8 @@ angular.module('stock').component('starredStocksComponent', {
     }, //closes controller
     bindings: []
 
-<<<<<<< HEAD
-})
-=======
 });
-<<<<<<< HEAD
 
-=======
->>>>>>> master
->>>>>>> master
 //
 // .controller('testCtrl', function($scope, $stateParams) {
 //
@@ -187,20 +179,6 @@ angular.module('stock').component('starredStocksComponent', {
 // });
 
 angular.module('stock').component('yahooComponent', {
-<<<<<<< HEAD
-    templateUrl: "./js/templates/yahooComponent.html",
-    controller: function yahooController(yahooService, $stateParams, $scope) {
-        yahooService.getStocks($stateParams.stockId).then(function(res) {
-            $scope.stockData = res.data;
-            console.log(res.data);
-
-            var data13 = [];
-            $scope.stockData.map(function(data) {
-                data13.push({
-                    "date": new Date(data.date),
-                    "close": data.close
-                });
-=======
   templateUrl: "./js/templates/yahooComponent.html",
   controller: function yahooController(yahooService,nyTimesService, $stateParams, $scope){
     yahooService.getStocks($stateParams.stockId).then(function(res){
@@ -233,58 +211,30 @@ angular.module('stock').component('yahooComponent', {
       var line = d3.line()
           .x(function(d) { return x(d.date); })
           .y(function(d) { return y(d.close); });
->>>>>>> master
 
-            });
-            var parseTime = d3.timeParse("%y-%b-%d");
 
-            var svg = d3.select("svg"),
-                margin = {
-                    top: 20,
-                    right: 20,
-                    bottom: 30,
-                    left: 50
-                },
-                width = +svg.attr("width") - margin.left - margin.right,
-                height = +svg.attr("height") - margin.top - margin.bottom,
-                g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        x.domain(d3.extent(data13, function(d) { return d.date; }));
+        y.domain(d3.extent(data13, function(d) { return d.close; }));
 
-            var x = d3.scaleTime().rangeRound([0, width]);
+        g.append("g")
+            .attr("class", "axis axis--x")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x));
 
-            var y = d3.scaleLinear().rangeRound([height, 0]);
+        g.append("g")
+            .attr("class", "axis axis--y")
+            .call(d3.axisLeft(y))
+          .append("text")
+            .attr("fill", "#000")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", "0.71em")
+            .style("text-anchor", "end")
+            .text("Price ($)");
 
-            var line = d3.line().x(function(d) {
-                return x(d.date);
-            }).y(function(d) {
-                return y(d.close);
-            });
-
-            x.domain(d3.extent(data13, function(d) {
-                return d.date;
-            }));
-            y.domain(d3.extent(data13, function(d) {
-                return d.close;
-            }));
-
-            g.append("g").attr("class", "axis axis--x").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
-
-            g.append("g").attr("class", "axis axis--y").call(d3.axisLeft(y)).append("text").attr("fill", "#000").attr("transform", "rotate(-90)").attr("y", 6).attr("dy", "0.71em").style("text-anchor", "end").text("Price ($)");
-
-            g.append("path")
+        g.append("path")
             .datum(data13)
             .attr("class", "line")
-<<<<<<< HEAD
-            .attr("d", line)
-            .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-          	.on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px").text(d);})
-          	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-
-
-            var tooltip = d3.select("body").append("div")
-            .style("position", "absolute")
-            .style("z-index", "10")
-            .style("visibility", "hidden");
-=======
             .attr("d", line);
 });
 $scope.getNewsDay = function(){
@@ -300,9 +250,6 @@ $scope.getNewsDay = function(){
 };
   },
   bindings: {
->>>>>>> master
-
-        });
 
     },
     bindings: {}
@@ -310,13 +257,21 @@ $scope.getNewsDay = function(){
 
 angular.module("stock")
   .service("nyTimesService", function($http){
-
-  this.getNews = function(companyData){
-  return $http.post("/stocknews", companyData);
-    // return $http({
-    //   method: "GET",
-    //   url: "http://api.nytimes.com/svc/search/v2/articlesearch.json?fq=romney&facet_field=day_of_week&begin_date=20120101&end_date=20120101&api-key=8c027c7e64c74f42a29665437c7db2a7",
-    // });
+  this.getNews = function(){
+    return $http({
+      method: "GET",
+      // url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+      url: "http://api.nytimes.com/svc/search/v2/articlesearch.json?fq=romney&facet_field=day_of_week&begin_date=20120101&end_date=20120101&api-key=8c027c7e64c74f42a29665437c7db2a7",
+      // qs: {
+      //   'api-key': config.nytAPI,
+      //   'q': "Apple",
+      //   'fq': "news_desk:(Business)",
+      //   'begin_date': "20161022",
+      //   'end_date': "20161024",
+      //   'sort': "newest",
+      //   'fl': "web_url,headline,snippet"
+      // },
+    });
   };
 });
 
