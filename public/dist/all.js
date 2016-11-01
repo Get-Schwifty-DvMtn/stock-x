@@ -137,12 +137,11 @@ angular.module('stock').component('settingsComponent', {
 });
 
 angular.module('stock').component('starredStocksComponent', {
-  templateUrl: "./js/templates/starredStocksComponent.html",
-  controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams){
-    console.log($stateParams);
-    userStocksService.getSavedStocks($stateParams.id)
-      .then(function(res){
-        console.log("starred", res.data);
+    templateUrl: "./js/templates/starredStocksComponent.html",
+    controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams) {
+
+        userStocksService.getSavedStocks($stateParams.id).then(function(res) {
+            // console.log("starred", res.data);
 
             //getting customers saved stocks for yahoo snaphsot
             var savedStockSymbols = {
@@ -171,17 +170,13 @@ angular.module('stock').component('starredStocksComponent', {
     }, //closes controller
     bindings: []
 
-<<<<<<< HEAD
-})
-=======
 });
->>>>>>> master
+
 //
 // .controller('testCtrl', function($scope, $stateParams) {
 //
 //   console.log("testCtrl", $stateParams);
 // });
-
 
 angular.module('stock').component('yahooComponent', {
   templateUrl: "./js/templates/yahooComponent.html",
@@ -256,18 +251,27 @@ $scope.getNewsDay = function(){
   },
   bindings: {
 
-  }
+    },
+    bindings: {}
 });
 
 angular.module("stock")
   .service("nyTimesService", function($http){
-
-  this.getNews = function(companyData){
-  return $http.post("/stocknews", companyData);
-    // return $http({
-    //   method: "GET",
-    //   url: "http://api.nytimes.com/svc/search/v2/articlesearch.json?fq=romney&facet_field=day_of_week&begin_date=20120101&end_date=20120101&api-key=8c027c7e64c74f42a29665437c7db2a7",
-    // });
+  this.getNews = function(){
+    return $http({
+      method: "GET",
+      // url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+      url: "http://api.nytimes.com/svc/search/v2/articlesearch.json?fq=romney&facet_field=day_of_week&begin_date=20120101&end_date=20120101&api-key=8c027c7e64c74f42a29665437c7db2a7",
+      // qs: {
+      //   'api-key': config.nytAPI,
+      //   'q': "Apple",
+      //   'fq': "news_desk:(Business)",
+      //   'begin_date': "20161022",
+      //   'end_date': "20161024",
+      //   'sort': "newest",
+      //   'fl': "web_url,headline,snippet"
+      // },
+    });
   };
 });
 
