@@ -1,4 +1,3 @@
-
 angular.module('stock').component('yahooComponent', {
   templateUrl: "./js/templates/yahooComponent.html",
   controller: function yahooController(yahooService,nyTimesService, $stateParams, $scope){
@@ -72,5 +71,6 @@ $scope.getNewsDay = function(){
   },
   bindings: {
 
-  }
+    },
+    bindings: {}
 });
