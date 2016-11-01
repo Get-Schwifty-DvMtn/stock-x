@@ -5,7 +5,7 @@ module.exports = {
   getNews: function(req, response){
   var companyData = {
     company: 'q='+req.body.company,
-    category: 'fq=news_desk:("Market Place")',
+    category: 'news_desk(\"market place\")',
     begin: "begin_date="+ req.body.begin,
     end: "end_date="+ req.body.end,
   };

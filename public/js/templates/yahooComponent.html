@@ -1,9 +1,9 @@
-<div class="yahooComponent">
-  <p>
-    <svg width="960" height="500"></svg>
-  </p>
-</div>
-<button ng-click="getNewsDay()"type="button" name="button">Test Get News</button>
+<nvd3 options="options" data="data"></nvd3>
+<h3>Get News</h3>
+Start Date<input ng-model="newsStartDate" type="date" name="name" value="">
+End Date<input ng-model="newsEndDate"type="date" name="name" value="">
+company <input ng-model="newsCompany"type="text" name="name" value="">
+<button ng-click="getNewsDay(newsStartDate,newsEndDate,newsCompany)"type="button" name="button">Test Get News</button>
 <div ng-repeat="article in news">
   {{article.headline.main}}<br>
   {{article.snippet}}
