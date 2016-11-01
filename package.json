@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Get-Schwifty-DvMtn/stock-x#readme",
   "dependencies": {
+    "angular-nvd3": "^1.0.9",
     "axios": "^0.15.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
