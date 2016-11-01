@@ -5,6 +5,7 @@ var session = require('express-session');
 var massive = require('massive');
 var yahooFinance = require('yahoo-finance');
 var yahooCtrl = require("./controller/yahooCtrl.js");
+var nytCtrl = require("./controller/nytCtrl.js");
 var config = require('./config.js');
 var passport = require('passport');
 var flash = require('connect-flash');
@@ -86,6 +87,8 @@ app.get("/getallstocks", stockCtrl.getAllStocks);
 app.get("/user/:id/getsavedstocks", stockCtrl.getSavedStocks);
 app.get("/testhole/:stockId", yahooCtrl.getStocks);
 app.post("/snapshots", yahooCtrl.savedStocksSnapshot);
+app.post("/addnewfavorite", stockCtrl.addNewFavorite);
+// app.post("/stocknews", nytCtrl.getNews);
 // GET /auth/google
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in Google authentication will involve

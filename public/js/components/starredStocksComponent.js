@@ -1,9 +1,18 @@
 angular.module('stock').component('starredStocksComponent', {
+<<<<<<< HEAD
     templateUrl: "./js/templates/starredStocksComponent.html",
     controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams) {
 
         userStocksService.getSavedStocks($stateParams.id).then(function(res) {
             // console.log("starred", res.data);
+=======
+  templateUrl: "./js/templates/starredStocksComponent.html",
+  controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams){
+    console.log($stateParams);
+    userStocksService.getSavedStocks($stateParams.id)
+      .then(function(res){
+        console.log("starred", res.data);
+>>>>>>> master
 
             //getting customers saved stocks for yahoo snaphsot
             var savedStockSymbols = {
@@ -21,7 +30,6 @@ angular.module('stock').component('starredStocksComponent', {
                 console.log(err);
             });
 
-            // console.log(res.data);
         }); //closes selectStocksService function
         userStocksService.getUserInfo($stateParams.id).then(function(res) {
             // console.log(res);
@@ -33,7 +41,11 @@ angular.module('stock').component('starredStocksComponent', {
     }, //closes controller
     bindings: []
 
+<<<<<<< HEAD
 })
+=======
+});
+>>>>>>> master
 //
 // .controller('testCtrl', function($scope, $stateParams) {
 //

@@ -9,7 +9,7 @@ $(document).ready(function () {
 	});
 
 	$('.wrapper').on('click', function() {
-		console.log('fired')
+		// console.log('fired')
 		$(this).removeClass("active");
 		$(".navicon").removeClass("active");
 		$('.header').removeClass("active");
@@ -27,8 +27,10 @@ $(document).ready(function () {
 
 	$(function(){
 	  $(".element").typed({
-		strings: ["First sentence.", "Second sentence."],
-		typeSpeed: 0
+		strings: ["Need real-time stock data?", "Want some hot news?", "Introducing our interactive graph tying the two together", "Try it for yourself"],
+		typeSpeed: 0,
+		backSpeed: -25,
+		backDelay: 1000
 	  });
 	});
 
