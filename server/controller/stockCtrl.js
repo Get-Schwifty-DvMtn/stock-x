@@ -39,27 +39,23 @@ module.exports = {
         res.status(200).json(newStock);
       }
     });
-  }
+  },
 
-  // db.find_By_Id([req.params.id], function(err, user) {
-  //     if (err) {
-  //         res.status(400).json(err);
-  //     } else if (user[0]) {
-  //         var userInfo = {
-  //             firstName: user[0].first_name,
-  //             lastName: user[0].last_name,
-  //             pic: user[0].pic_url
-  //         }
-  //         res.status(200).json(userInfo);
-  //     } else if (user) {
-  //         var userInfo = {
-  //             firstName: user.first_name,
-  //             lastName: user.last_name,
-  //             pic: user.pic_url
-  //         }
-  //         res.status(200).json(userInfo);
-  //     };
-
-  // });
+  removeFavorite: function(req, res) {
+    console.log("stockCtrl-rmvFav - req.body", req.body);
+    db.remove_favorite([req.body.id, req.body.stock], function (err, stock) {
+      console.log("stockCtrl-rmFav - stock: ", req.body.stock);
+      if (err) {
+        res.status(400).json(err);
+        console.log(err);
+      } else if (req.body) {
+        var toDelete = {
+          user_google_id: req.body.id,
+          company_symbol: req.body.stock,
+        };
+        res.status(200).json(toDelete);
+      }
+    });
+  },
 
 };

@@ -15,12 +15,7 @@ console.log("these are the state Params: ", $stateParams);
           console.log("new stock symbol is: ", stock);
           // $state.go($state.current, {}, {reload: true});
           // $window.location.reload();
-          $state.transitionTo($state.current, $stateParams, {
-            reload: true,
-            inherit: false,
-            notify: true
-          });
-
+          $state.reload();
       });
 
     };

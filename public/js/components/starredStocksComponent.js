@@ -1,8 +1,8 @@
-angular.module('stock').component('starredStocksComponent', {
+public/js/components/selectStocksComponent.js angular.module('stock').component('starredStocksComponent', {
     templateUrl: "./js/templates/starredStocksComponent.html",
-    controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams) {
-
-        userStocksService.getSavedStocks($stateParams.id).then(function(res) {
+    controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams, $state) {
+      var id = $stateParams.id;
+        userStocksService.getSavedStocks(id).then(function(res) {
             // console.log("starred", res.data);
 
             //getting customers saved stocks for yahoo snaphsot
@@ -22,20 +22,28 @@ angular.module('stock').component('starredStocksComponent', {
             });
 
         }); //closes selectStocksService function
-        userStocksService.getUserInfo($stateParams.id).then(function(res) {
+        userStocksService.getUserInfo(id).then(function(res) {
             // console.log(res);
             $scope.firstName = res.data.firstName;
             $scope.lastName = res.data.lastName;
             $scope.userPic = res.data.pic;
         });
 
+
+        $scope.removeFavorite = function(stock) {
+          console.log("id: " + id + ", stock is: " + stock);
+          var obj = {
+            id: id,
+            stock: stock
+          };
+          userStocksService.removeFavorite(obj)
+          .then(function(res){
+            console.log("id: " + obj.id + ", stock is: " + obj.stock + ", res is: " + res);
+            $state.reload();
+          });
+        };
+
     }, //closes controller
     bindings: []
 
 });
-
-//
-// .controller('testCtrl', function($scope, $stateParams) {
-//
-//   console.log("testCtrl", $stateParams);
-// });
