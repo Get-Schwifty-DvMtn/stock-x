@@ -1,4 +1,4 @@
 node_modules
 config.js
-public/dist/all.css
-public/dist/all.js
+all.css
+all.js
