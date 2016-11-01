@@ -1,5 +1,4 @@
 angular.module('stock').component('starredStocksComponent', {
-<<<<<<< HEAD
     templateUrl: "./js/templates/starredStocksComponent.html",
     controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams) {
 
