@@ -112,6 +112,28 @@ html, body {
   z-index: 3;
   background-color: #D7CEC7; }
 
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges; }
+
+.x.axis path {
+  display: none; }
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 5px; }
+
+.overlay {
+  fill: none;
+  pointer-events: all; }
+
+.focus circle {
+  fill: black;
+  stroke: steelblue; }
+
 .wrapper.active {
   left: 300px;
   cursor: pointer; }
@@ -277,6 +299,11 @@ a:hover, a:active {
 .yahooComponent {
   display: flex;
   justify-content: center; }
+
+.about-us-wrapper {
+  background-color: #fff;
+  height: 45vh;
+  width: 100%; }
 
 .typed-cursor {
   opacity: 1;
