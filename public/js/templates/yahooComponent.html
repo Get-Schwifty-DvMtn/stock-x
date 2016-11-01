@@ -3,3 +3,8 @@
     <svg width="960" height="500"></svg>
   </p>
 </div>
+<button ng-click="getNewsDay()"type="button" name="button">Test Get News</button>
+<div ng-repeat="article in news">
+  {{article.headline.main}}<br>
+  {{article.snippet}}
+</div>
