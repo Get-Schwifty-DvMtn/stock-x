@@ -1,24 +1,14 @@
 angular.module('stock').component('starredStocksComponent', {
-<<<<<<< HEAD
     templateUrl: "./js/templates/starredStocksComponent.html",
     controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams) {
 
         userStocksService.getSavedStocks($stateParams.id).then(function(res) {
             // console.log("starred", res.data);
-=======
-  templateUrl: "./js/templates/starredStocksComponent.html",
-  controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams){
-    console.log($stateParams);
-    userStocksService.getSavedStocks($stateParams.id)
-      .then(function(res){
-        console.log("starred", res.data);
->>>>>>> master
 
             //getting customers saved stocks for yahoo snaphsot
             var savedStockSymbols = {
                 symbols: []
             };
-<<<<<<< HEAD
             //passing saved stocks into a new array
             for (var i = 0; i < res.data.length; i++) {
                 savedStockSymbols.symbols.push(res.data[i].company_symbol);
@@ -30,21 +20,6 @@ angular.module('stock').component('starredStocksComponent', {
             }, function(err) {
                 console.log(err);
             });
-=======
-        //passing saved stocks into a new array
-        for (var i = 0; i < res.data.length; i++) {
-          savedStockSymbols.symbols.push(res.data[i].company_symbol);
-        }
-        console.log(savedStockSymbols);
-        //sending new array to backend for an api call
-        yahooService.getSnapshots(savedStockSymbols)
-        .then(function(res){
-          console.log(res.data);
-          $scope.saved_stocks = res.data;
-        }, function(err) {
-            console.log(err);
-        });
->>>>>>> master
 
             // console.log(res.data);
         }); //closes selectStocksService function
@@ -59,7 +34,7 @@ angular.module('stock').component('starredStocksComponent', {
     bindings: []
 
 })
-// 
+//
 // .controller('testCtrl', function($scope, $stateParams) {
 //
 //   console.log("testCtrl", $stateParams);
