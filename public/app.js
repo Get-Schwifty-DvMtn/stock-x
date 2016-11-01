@@ -1,4 +1,4 @@
-angular.module("stock", ["ui.router"])
+angular.module("stock", ["ui.router", "nvd3"])
   .config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("/");
 
