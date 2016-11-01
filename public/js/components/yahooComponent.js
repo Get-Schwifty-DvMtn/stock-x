@@ -71,6 +71,5 @@ $scope.getNewsDay = function(){
   },
   bindings: {
 
-    },
-    bindings: {}
+  }
 });
