@@ -131,7 +131,13 @@ angular.module('stock').component('settingsComponent', {
   templateUrl: "./js/templates/selectStocksComponent.html",
   controller: function selectStocksController(userStocksService, $scope){
 
+  }, //closes controller
+  bindings: []
+
+});
+
 angular.module('stock').component('starredStocksComponent', {
+<<<<<<< HEAD
     templateUrl: "./js/templates/starredStocksComponent.html",
     controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams) {
 
