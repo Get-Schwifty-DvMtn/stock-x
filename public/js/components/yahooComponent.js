@@ -53,6 +53,7 @@ angular.module("stock").component("yahooComponent", {
             };
       });
 
+
       $scope.getNewsDay = function(start, end, company){
           var companyData = {
             company: company,
