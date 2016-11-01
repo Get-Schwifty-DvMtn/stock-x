@@ -12,6 +12,7 @@ angular.module("stock").component("yahooComponent", {
       $scope.data = data13;
       $scope.options = {
                 chart: {
+                    showLegend: false,
                     type: 'lineChart',
                     height: 450,
                     margin : {
@@ -27,7 +28,7 @@ angular.module("stock").component("yahooComponent", {
                     xAxis: {
                         axisLabel: 'Dates',
                         tickFormat: function(d) {
-                            return d3.time.format('%x')(new Date());
+                            return d3.time.format('%x')(new Date(d));
                         },
                         showMaxMin: false
                     },
@@ -39,7 +40,12 @@ angular.module("stock").component("yahooComponent", {
                         },
                         showMaxMin: false
                     },
-
+                    lines: {
+                        dispatch: {
+                          // THIS IS WHERE YOU CAN ACCESS THE POINT DATA
+                            elementClick: function(e){ console.log(e); }
+                        }
+                    },
                     zoom: {
                         enabled: true,
                         scaleExtent: [1, 10],
