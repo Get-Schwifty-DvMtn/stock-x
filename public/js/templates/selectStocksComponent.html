@@ -6,7 +6,7 @@
   <!-- </div> -->
   <div class="select-stocks-container">
     <div class="select-stocks-list-container" ng-repeat="stock in all_stocks | filter: newFavoriteStock">
-      <a src="" ng-click="addNewFavorite(stock)" cursor="pointer">
+      <a ng-click="addNewFavorite(stock)" cursor="pointer">
         <ul class="starred-stocks-list col-md-6" >
           <li class="row">{{stock.symbol}}</li>
         </ul>
