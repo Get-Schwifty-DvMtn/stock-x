@@ -22,6 +22,15 @@ module.exports = {
     });
   },
 
+  getOneStock: function(req, res){
+    db.get_one_stock(req.params.id, function(err, stock){
+      if (err){
+        res.status(400).json(err);
+      }
+      else res.status(200).json(stock);
+    });
+  },
+
   addNewFavorite: function(req, res) {
     db.add_new_favorite([req.body[0], req.body[1].symbol, req.body[1].name], function (err, stock) {
       if (err) {
