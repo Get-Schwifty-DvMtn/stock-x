@@ -67,7 +67,6 @@ angular.module("stock").component("yahooComponent", {
             end: moment(end).format('YYYYMMDD')
           };
           nyTimesService.getNews(companyData).then(function(res){
-            console.log(res.data);
             $scope.news = res.data.response.docs;
           });
       };
