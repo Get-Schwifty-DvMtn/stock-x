@@ -5,15 +5,31 @@
     <!-- <button type="button" ng-click="addNewFavorite(newFavoriteStock)">Submit</button> -->
   <!-- </div> -->
   <div class="select-stocks-container">
-    <div class="select-stocks-list-container" ng-repeat="stock in all_stocks | filter: newFavoriteStock">
-      <a ng-click="addNewFavorite(stock)" cursor="pointer">
-        <ul class="starred-stocks-list col-md-6" >
-          <li class="row">{{stock.symbol}}</li>
-        </ul>
-        <ul class="col-md-6">
-          <li class="row">{{stock.name}}</li>
-        </ul>
-      </a>
-    </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Company Name</th>
+      </tr>
+    </thead>
+    <tbody>
+  <!-- <a ng-click="addNewFavorite(stock)" cursor="pointer"> -->
+    <tr class="select-stocks-list-container" ng-repeat="stock in all_stocks | filter: newFavoriteStock">
+
+
+        <td>
+          {{stock.symbol}}
+        </td>
+        <td>
+          {{stock.name}}
+        </td>
+        <td>
+          <button ng-click="addNewFavorite(stock)" cursor="pointer">+</button>
+        </td>
+
+    </tr>
+    <!-- </a> -->
+    </tbody>
+    </table>
   </div>
 </div>

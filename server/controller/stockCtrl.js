@@ -40,7 +40,7 @@ module.exports = {
   },
 
   addNewFavorite: function(req, res) {
-    db.add_new_favorite([req.body[0], req.body[1].symbol, req.body[1].name], function (err, stock) {
+    db.add_new_favorite([req.body[0], req.body[1].symbol], function (err, stock) {
       if (err) {
         res.status(400).json(err);
         console.log(err);
@@ -48,7 +48,7 @@ module.exports = {
         var newStock = {
           user_google_id: req.body[0],
           company_symbol: req.body[1].symbol,
-          company_name: req.body[1].name
+          // company_name: req.body[1].name
         };
         res.status(200).json(newStock);
       }
