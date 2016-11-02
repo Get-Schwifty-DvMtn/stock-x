@@ -2,7 +2,7 @@ angular.module('stock').component('starredStocksComponent', {
     templateUrl: "./js/templates/starredStocksComponent.html",
     controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams, $state) {
       var id = $stateParams.id;
-        userStocksService.getSavedStocks(id).then(function(res) {
+        var getSavedStocks = userStocksService.getSavedStocks(id).then(function(res) {
             //getting customers saved stocks for yahoo snaphsot
             var savedStockSymbols = {
                 symbols: []
@@ -21,7 +21,9 @@ angular.module('stock').component('starredStocksComponent', {
         $scope.removeFavorite = function(stock) {
         userStocksService.removeFavorite({id, stock})
         .then(function(res){
-          $state.reload();
+          // getSavedStocks();
+          $('#reload').load("./js/templates/starredStocksComponent.html" + ' #reload');
+          // console.log(document.URL);
         });
       };
     }, //closes controller
