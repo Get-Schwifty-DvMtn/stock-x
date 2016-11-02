@@ -2,13 +2,16 @@ angular.module('stock').component('starredStocksComponent', {
     templateUrl: "./js/templates/starredStocksComponent.html",
     controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams, $state) {
       var id = $stateParams.id;
-        var getSavedStocks = userStocksService.getSavedStocks(id).then(function(res) {
+        var getSavedStocks = function(){
+          userStocksService.getSavedStocks(id).then(function(res) {
             //getting customers saved stocks for yahoo snaphsot
             var savedStockSymbols = {
                 symbols: []
             };
             //passing saved stocks into a new array
+            console.log("this is in the starred comp", res.data);
             for (var i = 0; i < res.data.length; i++) {
+              console.log(res.data[i]);
                 savedStockSymbols.symbols.push(res.data[i].company_symbol);
             }
             //sending new array to backend for an api call
@@ -17,12 +20,13 @@ angular.module('stock').component('starredStocksComponent', {
             }, function(err) {
                 console.log(err);
             });
-        }); //closes selectStocksService function
+          });
+        } //closes getSavedStocks function
+        getSavedStocks();
         $scope.removeFavorite = function(stock) {
         userStocksService.removeFavorite({id, stock})
         .then(function(res){
-          // getSavedStocks();
-          $('#reload').load("./js/templates/starredStocksComponent.html" + ' #reload');
+          getSavedStocks();
         });
       };
     }, //closes controller
