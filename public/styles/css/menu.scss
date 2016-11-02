@@ -24,7 +24,7 @@ a {
 .header {
     width: 100%;
     height: 70px;
-    background-color: #fff;
+    background-color: steelblue;
     position: fixed;
     z-index: 101;
     top: 0;
@@ -35,7 +35,9 @@ a {
     justify-content: space-around;
 }
 .btn {
-    padding: 24px !important;
+    padding: 2px !important;
+    top: 21px !important;
+    right: 10px !important;
 }
 .header.active {
     -webkit-transition: all 0.2s ease-in-out;
@@ -258,7 +260,7 @@ a:hover, a:active {
     font-family: big-noodle;
     display: flex;
     justify-content: center;
-    color: $oxblood;
+    color: #ff9554;
     height: 10vh;
     text-align:center;
 }
@@ -267,7 +269,7 @@ a:hover, a:active {
     justify-content: center;
 }
 .about-us-wrapper {
-    background-color: $white;
+    background-color: #1f77b4;
     height: 40vh;
     width: 100%;
     display: flex;
@@ -278,6 +280,7 @@ a:hover, a:active {
             padding-left: 10%;
             padding-right: 10%;
             display: flex;
+            background-color: gainsboro;
             flex-direction: row;
             .icon-wrapper {
                 width: 33%;
@@ -289,6 +292,7 @@ a:hover, a:active {
                     height: 45%;
                     width: 40%;
                     display: flex;
+                    justify-content: space-around;
                     margin-left: auto;
                     margin-right: auto;
                     padding-left: 2.75%;
@@ -325,4 +329,29 @@ a:hover, a:active {
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
+}
+///////////////////////////////////////
+/////////   Yahoo Component   /////////
+///////////////////////////////////////
+
+.graph-button-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.graph-btn {
+    border-radius: 25px;
+    margin-right: 5px;
+    border:none;
+    outline:none;
+}
+svg {
+    margin-bottom: 105px;
+}
+.nvd3 .nv-axis {
+    fill: #ff9554;
+}
+line {
+    stroke: black !important;
 }
