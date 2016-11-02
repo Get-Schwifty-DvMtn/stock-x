@@ -1,6 +1,6 @@
 angular.module("stock").component("yahooComponent", {
   templateUrl: "./js/templates/yahooComponent.html",
-  controller: function yahooController(yahooService,nyTimesService,userStockService, $stateParams, $scope){
+  controller: function yahooController(yahooService,nyTimesService,userStocksService, $stateParams, $scope){
     userStocksService.getOneStock($stateParams.stockId).then(function(res){
       $scope.stockName = res.data[0].name;
     });
