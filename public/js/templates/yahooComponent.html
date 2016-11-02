@@ -1,9 +1,13 @@
-<nvd3 options="options" data="data"></nvd3>
+<nvd3 options="options" data="data" config="config" api="api"></nvd3>
+<button ng-click="changeGraph(1)" type="button">Line</button>
+<button ng-click="changeGraph(2)" type="button">Candle Stick</button>
+<button ng-click="changeGraph(3)" type="button">OHLC</button>
 <h3>Get News</h3>
 Start Date<input ng-model="newsStartDate" type="date" name="name" value="">
 End Date<input ng-model="newsEndDate"type="date" name="name" value="">
 company <input ng-model="newsCompany"type="text" name="name" value="">
 <button ng-click="getNewsDay(newsStartDate,newsEndDate,newsCompany)"type="button" name="button">Test Get News</button>
+
 <div ng-repeat="article in news">
   {{article.headline.main}}<br>
   {{article.snippet}}
