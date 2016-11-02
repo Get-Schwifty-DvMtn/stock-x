@@ -23,7 +23,15 @@ module.exports = {
   },
 
   getOneStock: function(req, res){
-    db.get_one_stock(req.params.stockId, function(err, stock){
+    var symbol;
+    console.log(req.params.stockId);
+    if (req.params.stockId !== "undefined"){
+      symbol = req.params.stockId;
+    }
+    else {
+      symbol = "ADBE";
+    }
+    db.get_one_stock(symbol, function(err, stock){
       if (err){
         res.status(400).json(err);
       }
