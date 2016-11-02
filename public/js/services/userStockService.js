@@ -13,6 +13,6 @@ angular.module("stock")
       return $http.post("/addnewfavorite", symbol);
     };
     this.removeFavorite = function(toDelete){
-      return $http.delete("/removefavorite", toDelete);
+      return $http.delete("/removefavorite/" + toDelete.id + "/" +  toDelete.stock );
     };
 });
