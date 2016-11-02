@@ -23,7 +23,6 @@ angular.module('stock').component('starredStocksComponent', {
         .then(function(res){
           // getSavedStocks();
           $('#reload').load("./js/templates/starredStocksComponent.html" + ' #reload');
-          // console.log(document.URL);
         });
       };
     }, //closes controller
