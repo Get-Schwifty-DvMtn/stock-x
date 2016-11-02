@@ -3,6 +3,9 @@ angular.module("stock")
     this.getAllStocks = function(){
       return $http.get("/getallstocks");
     };
+    this.getOneStock = function(id){
+      return $http.get("/getonestock/" + id);
+    };
     this.getSavedStocks = function(id){
       return $http.get("/user/" + id + "/getsavedstocks");
     };
