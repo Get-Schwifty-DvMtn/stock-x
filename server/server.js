@@ -89,7 +89,7 @@ app.get("/testhole/:stockId", yahooCtrl.getStocks);
 app.post("/snapshots", yahooCtrl.savedStocksSnapshot);
 app.post("/addnewfavorite", stockCtrl.addNewFavorite);
 app.post("/stocknews", nytCtrl.getNews);
-app.delete("/removefavorite", stockCtrl.removeFavorite);
+app.delete("/removefavorite/:id/:stock", stockCtrl.removeFavorite);
 
 // GET /auth/google
 //   Use passport.authenticate() as route middleware to authenticate the
