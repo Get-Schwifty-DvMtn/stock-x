@@ -1,13 +1,22 @@
 angular.module('stock').component('headerComponent', {
     templateUrl: "./js/templates/headerComponent.html",
     controller: function headerController(userStocksService, yahooService, $scope, $stateParams) {
+      console.log("stateParams",$stateParams.id);
+
     setTimeout(function() {
+      if ($stateParams.id){
+        $scope.loggedIn = true;
+      }
+      else {
+        $scope.loggedIn = false;
+      }
             userStocksService.getUserInfo($stateParams.id).then(function(res) {
                 $scope.firstName = res.data.firstName;
                 $scope.lastName = res.data.lastName;
                 $scope.userPic = res.data.pic;
             });
           }, 50);
+
         }
       });
 

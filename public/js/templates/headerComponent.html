@@ -6,9 +6,9 @@
             <span class="t3"></span>
         </div>
     </div>
-    <div>
-        {{firstname}}
-        {{lastname}}
+    <div ng-show = "loggedIn"class= "profile-container">
+        <img style = "width: 50px; height: auto;border-radius: 50px;"class="user-profile-pic" ng-src="{{userPic}}" alt="" />
+        <p>Hello, {{firstName}} {{lastName}}</p>
     </div>
-    <a href="/auth/google" class="btn btn-default"><span class="fa fa-user"></span> Sign In with Google</a>
+    <a ng-show = "!loggedIn" href="/auth/google" class="btn btn-default"><span class="fa fa-user"></span> Sign In with Google</a>
 </div>
