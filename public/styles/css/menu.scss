@@ -4,6 +4,7 @@ $oxblood: #76323F;
 $tan: #C09F80;
 $white: #fff;
 $menuFont: 'Open Sans', sans-serif;
+$pageFont: 'big-noodle';
 *, *:before, *:after {
     box-sizing: border-box;
 }
@@ -267,9 +268,43 @@ a:hover, a:active {
 }
 .about-us-wrapper {
     background-color: $white;
-    height: 45vh;
+    height: 40vh;
     width: 100%;
+    display: flex;
+    align-items: center;
+        .three-icon-container {
+            width: 100%;
+            height: 80%;
+            padding-left: 10%;
+            padding-right: 10%;
+            display: flex;
+            flex-direction: row;
+            .icon-wrapper {
+                width: 33%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                .icon-container {
+                    height: 45%;
+                    width: 40%;
+                    display: flex;
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 2.75%;
+                }
+            .icon-text {
+                font-family: 'PT Sans', sans-serif;
+                font-size: 16px;
+                height: 40%;
+                width: 100%;
+                padding: 20px;
+                text-align: center;
+            }
+            }
+        }
 }
+
 .typed-cursor{
     opacity: 1;
     -webkit-animation: blink 0.7s infinite;

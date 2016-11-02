@@ -70,7 +70,7 @@ angular.module("stock").component("yahooComponent", {
                         }
                     },
                     zoom: {
-                        enabled: true,
+                        enabled: false,
                         scaleExtent: [1, 10],
                         // useInteractiveGuideline: true,
                         useFixedDomain: false,
