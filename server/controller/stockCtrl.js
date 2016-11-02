@@ -23,7 +23,7 @@ module.exports = {
   },
 
   getOneStock: function(req, res){
-    db.get_one_stock(req.params.id, function(err, stock){
+    db.get_one_stock(req.params.stockId, function(err, stock){
       if (err){
         res.status(400).json(err);
       }
