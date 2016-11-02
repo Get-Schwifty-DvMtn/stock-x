@@ -3,7 +3,6 @@ var db = app.get('db');
 
 module.exports = {
   getAllStocks: function(req, res) {
-    console.log("getAllStocks is working");
     db.get_all_stocks(function(err, stocks) {
       if(err) {
         res.status(400).json(err);
@@ -24,9 +23,7 @@ module.exports = {
   },
 
   addNewFavorite: function(req, res) {
-    console.log("stockCtrl - req.body", req.body);
     db.add_new_favorite([req.body[0], req.body[1].symbol, req.body[1].name], function (err, stock) {
-      console.log("stockCtrl - stock: ", req.body[1]);
       if (err) {
         res.status(400).json(err);
         console.log(err);
@@ -42,16 +39,14 @@ module.exports = {
   },
 
   removeFavorite: function(req, res) {
-    console.log("stockCtrl-rmvFav - req.body", req.body);
-    db.remove_favorite([req.body.id, req.body.stock], function (err, stock) {
-      console.log("stockCtrl-rmFav - stock: ", req.body.stock);
+    db.remove_favorite([req.params.id, req.params.stock], function (err, stock) {
       if (err) {
         res.status(400).json(err);
         console.log(err);
-      } else if (req.body) {
+      } else {
         var toDelete = {
-          user_google_id: req.body.id,
-          company_symbol: req.body.stock,
+          user_google_id: req.params.id,
+          company_symbol: req.params.stock,
         };
         res.status(200).json(toDelete);
       }
