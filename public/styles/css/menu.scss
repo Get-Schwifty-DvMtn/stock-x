@@ -33,6 +33,10 @@ a {
     transition: all 0.2s ease-in-out;
     display: flex;
     justify-content: space-around;
+    .profile-container{
+      position: absolute;
+      right: 10px;
+    }
 }
 .btn {
     padding: 2px !important;
