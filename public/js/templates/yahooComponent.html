@@ -1,14 +1,48 @@
+<style>
+  tbody tr:nth-child(odd){
+    background-color: #404040;
+  }
+  thead tr th {
+    border: none !important;
+    padding:none !important;
+  }
+  tbody tr td {
+    border: none !important;
+    padding:none !important;
+  }
+</style>
+<div class="graph-button-container">
+        <button class='graph-btn' ng-click="changeGraph(1)" type="button">Line</button>
+        <button class='graph-btn' ng-click="changeGraph(2)" type="button">Candle Stick</button>
+        <button class='graph-btn' ng-click="changeGraph(3)" type="button">OHLC</button>
+</div>
 <nvd3 options="options" data="data" config="config" api="api"></nvd3>
-<button ng-click="changeGraph(1)" type="button">Line</button>
-<button ng-click="changeGraph(2)" type="button">Candle Stick</button>
-<button ng-click="changeGraph(3)" type="button">OHLC</button>
-<h3>Get News</h3>
-Start Date<input ng-model="newsStartDate" type="date" name="name" value="">
-End Date<input ng-model="newsEndDate"type="date" name="name" value="">
-company <input ng-model="newsCompany"type="text" name="name" value="">
-<button ng-click="getNewsDay(newsStartDate,newsEndDate,newsCompany)"type="button" name="button">Test Get News</button>
-
-<div ng-repeat="article in news">
-  {{article.headline.main}}<br>
-  {{article.snippet}}
+<h2 style="color: #00CE9E">{{stockSymbol}}-{{stockName}} </h2>
+<div >
+  <table class="table"  style="color: #00CE9E">
+    <thead>
+      <tr>
+        <th>Go!</th>
+        <th>Headline</th>
+        <th>Snippet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="article in news">
+          <td>
+            <a target="_blank" ng-href="{{article.web_url}}">
+            <button type="button">
+              <span class="glyphicon glyphicon-new-window"></span>
+            </button>
+          </a>
+          </td>
+          <td>
+            {{article.headline.main}}
+          </td>
+          <td>
+            {{article.snippet}}
+          </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

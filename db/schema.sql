@@ -7,13 +7,14 @@ token text,
 pic_url text)
 
 CREATE TABLE all_stocks (
-name text UNIQUE,
-symbol text UNIQUE)
+name text,
+symbol text UNIQUE,
+search_term text)
 
 CREATE TABLE saved_stocks (
-user_id integer REFERENCES users(id),
-company_symbol text REFERENCES all_stocks(symbol),
-company_name text REFERENCES all_stocks(name)
+stock_id serial PRIMARY KEY,
+user_google_id text REFERENCES users(id),
+company_symbol text REFERENCES all_stocks(symbol)
 )
 
 current test data
