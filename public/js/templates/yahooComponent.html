@@ -3,8 +3,10 @@
         <button class='graph-btn' ng-click="changeGraph(2)" type="button">Candle Stick</button>
         <button class='graph-btn' ng-click="changeGraph(3)" type="button">OHLC</button>
 </div>
-<nvd3 options="options" data="data" config="config" api="api"></nvd3>
 
+<div class='graph-container'>
+<nvd3 options="options" data="data" config="config" api="api"></nvd3>
+</div>
 
 <div ng-repeat="article in news">
   {{article.headline.main}}<br>
