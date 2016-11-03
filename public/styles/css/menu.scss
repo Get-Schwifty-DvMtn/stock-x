@@ -304,6 +304,7 @@ a:hover, a:active {
                     justify-content: space-around;
                     margin-left: auto;
                     margin-right: auto;
+                    margin-top: 35px;
                     padding-left: 2.75%;
                 }
             .icon-text {
@@ -355,12 +356,42 @@ a:hover, a:active {
     border:none;
     outline:none;
 }
-svg {
-    margin-bottom: 105px;
-}
+// svg {
+//     margin-bottom: 105px;
+// }
 .nvd3 .nv-axis {
     fill: #ff9554;
 }
 line {
     stroke: black !important;
+}
+.graph-container {
+    height: 450px;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 105px;
+}
+
+///////////////////////////////////////////////
+/////////   Select Stocks Component   /////////
+///////////////////////////////////////////////
+
+.myButton {
+	background-color:#00CE9E;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:25px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: $menuFont;
+	font-size:28px;
+	padding:3px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #00CE9E;
+}
+.myButton:hover {
+	background-color:#067c61;
+    color: #fff;
 }

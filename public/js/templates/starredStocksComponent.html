@@ -18,19 +18,19 @@
   <table class="table" style="color: #00CE9E" ng-if="saved_stocks.length">
     <thead>
       <tr>
-        <th>Company Simba</th>
+        <th>Company Symbol</th>
         <th>Company Name</th>
         <th>Price</th>
         <th>$ change (today)</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="starred-stocks-list-container" ng-repeat="stock in saved_stocks" ui-sref="profile.profileStock({stockId: stock.symbol})" style="cursor:pointer;">
-        <td>{{stock.symbol}}</td>
-        <td>{{stock.name}}</td>
-        <td>{{stock.ask}}</td>
-        <td>{{stock.change}}</td>
-        <td><button class="remove-stock-button row" ng-click="removeFavorite(stock.symbol)">X</button></td>
+      <tr class="starred-stocks-list-container" ng-repeat="stock in saved_stocks" style="cursor:pointer;">
+        <td ui-sref="profile.profileStock({stockId: stock.symbol})">{{stock.symbol}}</td>
+        <td ui-sref="profile.profileStock({stockId: stock.symbol})">{{stock.name}}</td>
+        <td ui-sref="profile.profileStock({stockId: stock.symbol})">{{stock.ask}}</td>
+        <td ui-sref="profile.profileStock({stockId: stock.symbol})">{{stock.change}}</td>
+        <td><div class="remove-stock-button myButton" ng-click="removeFavorite(stock.symbol)">X</div></td>
       </tr>
     </tbody>
     </table>
