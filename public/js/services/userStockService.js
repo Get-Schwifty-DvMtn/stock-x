@@ -9,8 +9,8 @@ angular.module("stock")
     this.getSavedStocks = function(id){
       return $http.get("/user/" + id + "/getsavedstocks");
     };
-    this.getUserInfo = function(id){
-      return $http.get("getuserinfo/"+id);
+    this.getUserInfo = function(){
+      return $http.get("getuserinfo");
     };
     this.addNewFavorite = function(symbol){
       return $http.post("/addnewfavorite", symbol);
