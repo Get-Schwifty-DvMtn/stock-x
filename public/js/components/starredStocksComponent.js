@@ -2,6 +2,9 @@ angular.module('stock').component('starredStocksComponent', {
     templateUrl: "./js/templates/starredStocksComponent.html",
     controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams, $state) {
       var id = $stateParams.id;
+
+
+
         var getSavedStocks = function(){
           userStocksService.getSavedStocks(id).then(function(res) {
             //getting customers saved stocks for yahoo snaphsot
