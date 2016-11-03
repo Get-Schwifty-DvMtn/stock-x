@@ -9,9 +9,8 @@ angular.module('stock').component('starredStocksComponent', {
                 symbols: []
             };
             //passing saved stocks into a new array
-            console.log("this is in the starred comp", res.data);
             for (var i = 0; i < res.data.length; i++) {
-              console.log(res.data[i]);
+            //   console.log(res.data[i]);
                 savedStockSymbols.symbols.push(res.data[i].company_symbol);
             }
             //sending new array to backend for an api call
