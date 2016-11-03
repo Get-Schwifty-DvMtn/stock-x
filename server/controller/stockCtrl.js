@@ -24,7 +24,6 @@ module.exports = {
 
   getOneStock: function(req, res){
     var symbol;
-    console.log(req.params.stockId);
     if (req.params.stockId !== "undefined"){
       symbol = req.params.stockId;
     }
