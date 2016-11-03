@@ -2,7 +2,10 @@ angular.module("stock").component("yahooComponent", {
   templateUrl: "./js/templates/yahooComponent.html",
   controller: function yahooController(yahooService,nyTimesService,userStocksService, $stateParams, $scope){
     userStocksService.getOneStock($stateParams.stockId).then(function(res){
+      console.log("getOneStock:",res.data);
       $scope.stockName = res.data[0].name;
+      $scope.stockSymbol = res.data[0].symbol;
+
     });
 
     yahooService.getStocks($stateParams.stockId).then(function(res){
