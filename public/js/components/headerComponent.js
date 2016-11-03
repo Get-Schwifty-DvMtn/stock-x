@@ -1,7 +1,7 @@
 angular.module('stock').component('headerComponent', {
     templateUrl: "./js/templates/headerComponent.html",
     controller: function headerController(userStocksService, yahooService, $scope, $stateParams) {
-      console.log("stateParams",$stateParams.id);
+    //   console.log("stateParams",$stateParams.id);
 
     setTimeout(function() {
       if ($stateParams.id){
