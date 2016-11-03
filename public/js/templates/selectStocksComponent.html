@@ -1,11 +1,25 @@
+<style>
+  tbody tr:nth-child(odd){
+    background-color: #404040;
+  }
+  thead tr th {
+    border: none !important;
+    padding:none !important;
+  }
+  tbody tr td {
+    border: none !important;
+    padding:none !important;
+  }
+</style>
+
 <div class="container">
   <!-- <div>Soon you wil be able to select your own stocks :) </div> -->
   <!-- <div class="row"> -->
     <input type="text" placeholder="Search..." ng-model="newFavoriteStock">
-    <!-- <button type="button" ng-click="addNewFavorite(newFavoriteStock)">Submit</button> -->
+
   <!-- </div> -->
-  <div class="select-stocks-container">
-    <table class="table table-striped">
+  <div class="select-stocks-container" ng-if="newFavoriteStock.length > 1">
+    <table class="table"  style="color: #00CE9E">
     <thead>
       <tr>
         <th>Symbol</th>
@@ -13,19 +27,24 @@
       </tr>
     </thead>
     <tbody>
-  <!-- <a ng-click="addNewFavorite(stock)" cursor="pointer"> -->
-    <tr class="select-stocks-list-container" ng-repeat="stock in all_stocks | filter: newFavoriteStock">
+    <tr class="select-stocks-list-container" ng-repeat="stock in all_stocks | filter: newFavoriteStock" ng-click="addNewFavorite(stock)" style="cursor:pointer;">
 
 
+        <!-- <td>
+          <a ng-click="addNewFavorite(stock)" cursor="pointer">{{stock.symbol}}</a>
+        </td>
+        <td>
+          <a ng-click="addNewFavorite(stock)" cursor="pointer">{{stock.name}}</a>
+        </td> -->
         <td>
           {{stock.symbol}}
         </td>
         <td>
           {{stock.name}}
         </td>
-        <td>
+        <!-- <td>
           <button ng-click="addNewFavorite(stock)" cursor="pointer">+</button>
-        </td>
+        </td> -->
 
     </tr>
     <!-- </a> -->

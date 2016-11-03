@@ -1,2 +1,1 @@
-SELECT * FROM all_stocks
-LIMIT 20;
+SELECT * FROM all_stocks;
