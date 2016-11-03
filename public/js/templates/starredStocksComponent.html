@@ -1,24 +1,37 @@
+<style>
+  tbody tr:nth-child(odd){
+    background-color: #404040;
+  }
+  thead tr th {
+    border: none !important;
+    padding:none !important;
+  }
+  tbody tr td {
+    border: none !important;
+    padding:none !important;
+  }
+</style>
+
 <div class="starred-stocks-container" id="reload">
-  <h3>Your current watchlist: </h3>
-  <div class="starred-stocks-list-container" ng-repeat="stock in saved_stocks">
-    <a ui-sref="profile.profileStock({stockId: stock.symbol})" class="col-lg-11">
-      <ul class="starred-stocks-list col-xs-2" >
-        <li class="row">{{stock.symbol}}</li>
-      </ul>
-      <ul class="col-md-4">
-        <li class="row">{{stock.name}}</li>
-      </ul>
-      <ul class="col-xs-2">
-        <li class="row">{{stock.ask}}</li>
-      </ul>
-      <ul class="col-sm-3">
-        <li class="row">{{stock.change}} (in USD$)</li>
-      </ul>
-    </a>
-      <div class="col-xs-1">
-        <button class="remove-stock-button row" ng-click="removeFavorite(stock.symbol)">X</button>
-      </div>
-
-
-  </div>
+  <h3 style="color: rgba(217,217,217,.7)">Your current watchlist: </h3>
+  <h1 ng-if="!saved_stocks.length" class="text-center">Add some stocks to your watchlist!</h1>
+  <table class="table" style="color: #00CE9E" ng-if="saved_stocks.length">
+    <thead>
+      <tr>
+        <th>Company Simba</th>
+        <th>Company Name</th>
+        <th>Price</th>
+        <th>$ change (today)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="starred-stocks-list-container" ng-repeat="stock in saved_stocks" ui-sref="profile.profileStock({stockId: stock.symbol})" style="cursor:pointer;">
+        <td>{{stock.symbol}}</td>
+        <td>{{stock.name}}</td>
+        <td>{{stock.ask}}</td>
+        <td>{{stock.change}}</td>
+        <td><button class="remove-stock-button row" ng-click="removeFavorite(stock.symbol)">X</button></td>
+      </tr>
+    </tbody>
+    </table>
 </div>
