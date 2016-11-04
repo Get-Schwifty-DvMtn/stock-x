@@ -11,23 +11,37 @@
     padding:none !important;
   }
 </style>
-<div class="graph-button-container">
-
-  <button class='graph-btn' ng-click="changeGraph(1)" type="button">Line</button>
-  <button class='graph-btn' ng-click="changeGraph(2)" type="button">Candle Stick</button>
-  <button class='graph-btn' ng-click="changeGraph(3)" type="button">OHLC</button>
-  <button ng-click="setGraphRange(1)"value="1 Mo">1 Mo</button>
-  <button ng-click="setGraphRange(3)"value="3 Mo">3 Mo</button>
-  <button ng-click="setGraphRange(6)"value="6 Mo">6 Mo</button>
-  <button ng-click="setGraphRange(12)"value="12 Mo">12 Mo</button>
-  <button ng-click="setGraphRange(24)"value="24 Mo">24 Mo</button>
-
+<div class="graph-header-container">
+  <div class="graph-header-company-name">
+    <h1 style="color: #00CE9E">{{stockSymbol}}-{{stockName}} </h1>
+  </div>
+  <div class="graph-button-container">
+    <div class="graph-type-buttons">
+      <div class="stockchart-nav-dropdown">
+       <ul>
+          <li><a href="#">Chart Types<div id="down-triangle"></div></a>
+           <ul>
+               <li><a ng-click="changeGraph(1)">Line<div class="circle"></div></a></li>
+               <li><a ng-click="changeGraph(2)">Candle Stick<div class="circle"></div></a></li>
+               <li><a ng-click="changeGraph(3)">OHLC<div class="circle"></div></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="graph-range-buttons">
+        <button class="graph-range-button" ng-click="setGraphRange(1)"value="1 Mo">1 Mo</button>
+        <button class="graph-range-button" ng-click="setGraphRange(3)"value="3 Mo">3 Mo</button>
+        <button class="graph-range-button" ng-click="setGraphRange(6)"value="6 Mo">6 Mo</button>
+        <button class="graph-range-button" ng-click="setGraphRange(12)"value="12 Mo">12 Mo</button>
+        <button class="graph-range-button" ng-click="setGraphRange(24)"value="24 Mo">24 Mo</button>
+    </div>
+  </div>
 </div>
 
 <div class='graph-container'>
 <nvd3 options="options" data="data" config="config" api="api"></nvd3>
 </div>
-<h2 style="color: #00CE9E">{{stockSymbol}}-{{stockName}} </h2>
 <div >
   <h3>News for {{stockName}} on {{newsDate}}</h3>
   <table class="table"  style="color: #00CE9E">
