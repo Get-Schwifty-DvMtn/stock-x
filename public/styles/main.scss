@@ -1,12 +1,11 @@
 @import './base/reset.scss';
 @import './css/menu.scss';
-
+@import './css/yahooComponent.scss';
 // .axis--x path {
 //   display: none;
 // }
-
 .line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
 }
