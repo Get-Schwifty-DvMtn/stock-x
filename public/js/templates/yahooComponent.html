@@ -13,21 +13,21 @@
 </style>
 <div class="graph-header-container">
   <div class="graph-header-company-name">
-    <h2 style="color: #00CE9E">{{stockSymbol}}-{{stockName}} </h2>
+    <h1 style="color: #00CE9E">{{stockSymbol}}-{{stockName}} </h1>
   </div>
   <div class="graph-button-container">
     <div class="graph-type-buttons">
-      <nav class="stockchart-nav-dropdown">
-         <ul>
-             <li><a href="#">Chart Types<div id="down-triangle"></div></a>
-                 <ul>
-                     <li><a ng-click="changeGraph(1)">Line<div class="circle"></div></a></li>
-                     <li><a ng-click="changeGraph(2)">Candle Stick<div class="circle"></div></a></li>
-                     <li><a ng-click="changeGraph(3)">OHLC<div class="circle"></div></a></li>
-                 </ul>
-             </li>
-         </ul>
-     </nav>
+      <div class="stockchart-nav-dropdown">
+       <ul>
+          <li><a href="#">Chart Types<div id="down-triangle"></div></a>
+           <ul>
+               <li><a ng-click="changeGraph(1)">Line<div class="circle"></div></a></li>
+               <li><a ng-click="changeGraph(2)">Candle Stick<div class="circle"></div></a></li>
+               <li><a ng-click="changeGraph(3)">OHLC<div class="circle"></div></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="graph-range-buttons">
         <button class="graph-range-button" ng-click="setGraphRange(1)"value="1 Mo">1 Mo</button>
