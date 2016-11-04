@@ -16,7 +16,7 @@ angular.module("stock", ["ui.router", "nvd3"])
       templateUrl: "./views/loginUser.html"
     })
     .state("profile", {
-      url: "/user/:id",
+      url: "/user",
       abstract: true,
       templateUrl: "./views/profile.html"
     })
@@ -28,9 +28,9 @@ angular.module("stock", ["ui.router", "nvd3"])
       url: "/stocks/:stockId",
       templateUrl: "./views/profileStock.html",
       // controller: 'testCtrl'
-    })
-    .state("profile.pref", {
-      url: "/pref",
-      templateUrl: "./views/pref.html"
     });
+    // .state("profile.pref", {
+    //   url: "/pref",
+    //   templateUrl: "./views/pref.html"
+    // });
   });

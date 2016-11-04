@@ -7,7 +7,7 @@ angular.module("stock")
       return $http.get("/getonestock/" + stockId);
     };
     this.getSavedStocks = function(id){
-      return $http.get("/user/" + id + "/getsavedstocks");
+      return $http.get("/user/getsavedstocks/" + id);
     };
     this.getUserInfo = function(){
       return $http.get("getuserinfo");
@@ -15,7 +15,8 @@ angular.module("stock")
     this.addNewFavorite = function(symbol){
       return $http.post("/addnewfavorite", symbol);
     };
-    this.removeFavorite = function(toDelete){
-      return $http.delete("/removefavorite/" + toDelete.id + "/" +  toDelete.stock );
+    this.removeFavorite = function(id){
+      
+      return $http.delete("/removefavorite/" + id);
     };
 });

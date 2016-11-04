@@ -1,9 +1,12 @@
 angular.module('stock').component('starredStocksComponent', {
     templateUrl: "./js/templates/starredStocksComponent.html",
     controller: function starredStocksController(userStocksService, yahooService, $scope, $stateParams, $state) {
-      var id = $stateParams.id;
-
-
+      var id;
+      var usersSavedStocks;
+      userStocksService.getUserInfo().then(function(res){
+        id = res.data.google_id;
+        getSavedStocks(id);
+      })
 
         var getSavedStocks = function(){
           userStocksService.getSavedStocks(id).then(function(res) {
@@ -12,6 +15,8 @@ angular.module('stock').component('starredStocksComponent', {
                 symbols: []
             };
             //passing saved stocks into a new array
+            console.log('res.data in get saved stocks', res.data);
+            usersSavedStocks = res.data;
             for (var i = 0; i < res.data.length; i++) {
             //   console.log(res.data[i]);
                 savedStockSymbols.symbols.push(res.data[i].company_symbol);
@@ -24,12 +29,22 @@ angular.module('stock').component('starredStocksComponent', {
             });
           });
         } //closes getSavedStocks function
-        getSavedStocks();
-        $scope.removeFavorite = function(stock) {
-        userStocksService.removeFavorite({id, stock})
-        .then(function(res){
-          getSavedStocks();
-        });
+        
+        $scope.removeFavorite = function(symbol) {
+          console.log('symbol', symbol);
+          console.log('usersSavedStocks', usersSavedStocks);
+          for (var i = 0; i < usersSavedStocks.length; i++) {
+            if (usersSavedStocks[i].company_symbol === symbol) {
+              userStocksService.removeFavorite(usersSavedStocks[i].stock_id)
+                .then(function(res){
+                  getSavedStocks();
+              });
+              
+            }
+          }
+          console.log('???');
+          
+          
       };
     }, //closes controller
     bindings: []
