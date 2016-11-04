@@ -1,18 +1,74 @@
-body {
-    background: #f2f2f2;
-    font-size: 1.25em;
-    font-family: 'Raleway', sans-serif;
+
+.graph-header-container{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    .graph-header-company-name{
+      text-align: center;
+    }
+
+    .graph-button-container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        .graph-type-buttons{
+          padding-left: 15px;
+
+          
+        } //ends graph-type-buttons
+        .graph-range-buttons{
+          padding-right: 15px;
+          padding-bottom: 4px;
+          align-self: center;
+
+          .graph-range-button{
+            background: none;
+            border: none;
+            color: steelblue;
+          }
+        } // ends graph-range-buttons
+    } // ends graph-button-container
+} //ends graph-header-container
+
+
+// svg {
+//     margin-bottom: 105px;
+// }
+.nvd3 .nv-axis {
+    fill: #ff9554;
+}
+line {
+    stroke: black !important;
+}
+.graph-container {
+    height: 450px;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 105px;
+}
+.news-column-headers {
+    display: flex;
+    justify-content: space-around;
+}
+.column-header {
+    font-family: $menuFont;
+    font-size: 16px;
+    color: $offWhite;
 }
 
 .stockchart-nav-dropdown {
-    margin: 100px auto;
+    font-size: 1.25em;
+    font-family: 'Raleway', sans-serif;
     text-align: center;
 }
 
 .stockchart-nav-dropdown ul {
     margin-left: 0;
     padding-left: 0;
-    width: 500px;
+    width: 200px;
     list-style: none;
     position: relative;
     display: inline-table;
@@ -28,7 +84,7 @@ body {
 
 .stockchart-nav-dropdown ul li {
     float: left;
-    width: 500px;
+    width: 200px;
     text-align: left;
     border-bottom: 3px solid #2ecc71;
 }
@@ -40,7 +96,7 @@ body {
 .stockchart-nav-dropdown ul li a {
     display: block;
     padding: 15px 10px;
-    /*color: #2a2a2a;*/
+    background-color: #282424;
     text-decoration: none;
 }
 
