@@ -21,7 +21,7 @@ module.exports = {
     }
     yahooFinance.historical({
       symbol: stock,
-      from: '2015-10-17',
+      from: '2015-11-01',
       to: todayFormatted,
       // period: 'd'  // 'd' (daily), 'w' (weekly), 'm' (monthly), 'v' (dividends only)
     }, function (err, quotes) {
