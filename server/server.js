@@ -107,7 +107,7 @@ app.get('/auth/google', passport.authenticate('google', {scope: ['https://www.go
 //   login page.  Otherwise, the primary route function function will be called,
 //   which, in this example, will redirect the user to the home page.
 app.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/#/'}), function(req, res) {
-    res.redirect('/#/user/' + req.user.google_id);
+    res.redirect('/#/user');
 });
 
 app.listen(config.port, function() {
