@@ -14,7 +14,6 @@ var morgan = require('morgan');
 
 var massiveInstance = massive.connectSync({connectionString: config.connectionString});
 
-
 // Use the GoogleStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
 //   credentials (in this case, an accessToken, refreshToken, and Google
@@ -30,7 +29,7 @@ passport.use(new GoogleStrategy({
                 profile.id, profile.name.familyName, profile.name.givenName, profile.photos[0].value + '0',
                 accessToken
             ], function(err, user) {
-              console.log(user);
+                console.log(user);
                 return done(err, user[0]);
             });
 
@@ -64,7 +63,7 @@ app.use(session({
     resave: true,
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000*60*60*24*14 // 14 days
+        maxAge: 1000 *14 // 14 days
     }
 }));
 app.use(passport.initialize());
@@ -77,11 +76,6 @@ var db = app.get('db');
 var stockCtrl = require("./controller/stockCtrl.js");
 var userCtrl = require("./controller/userCtrl.js");
 
-
-
-
-
-
 app.get("/getonestock/:stockId", stockCtrl.getOneStock);
 app.get('/getuserinfo', userCtrl.getUserInfo);
 app.get("/getallstocks", stockCtrl.getAllStocks);
@@ -91,7 +85,10 @@ app.post("/snapshots", yahooCtrl.savedStocksSnapshot);
 app.post("/addnewfavorite", stockCtrl.addNewFavorite);
 app.post("/stocknews", nytCtrl.getNews);
 app.delete("/removefavorite/:stock_id", stockCtrl.removeFavorite);
-
+app.get('/logout', function(req, res) {
+    req.session.destroy(function(err, data) {
+    });
+});
 // GET /auth/google
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in Google authentication will involve
