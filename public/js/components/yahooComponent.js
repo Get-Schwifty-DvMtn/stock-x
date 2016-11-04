@@ -113,14 +113,14 @@ angular.module("stock").component("yahooComponent", {
                                 }
                             },
                             zoom: {
-                                enabled: false,
+                                enabled: true,
                                 scaleExtent: [1, 10],
-                                // useInteractiveGuideline: true,
+                                useInteractiveGuideline: true,
                                 useFixedDomain: false,
-                                useNiceScale: false,
+                                useNiceScale: true,
                                 horizontalOff: false,
                                 verticalOff: true,
-                                // unzoomEventType: 'dblclick.zoom'
+                                unzoomEventType: 'dblclick.zoom'
                             }
                         } // this ends chart
                     }; // this ends scope.options
@@ -133,4 +133,4 @@ angular.module("stock").component("yahooComponent", {
                 }); // ends yahooService.getStocks.then function
             }; //ends setGraphRange function
         } // ends controller
-}); // Angular.modul
+}); // Angular.module
