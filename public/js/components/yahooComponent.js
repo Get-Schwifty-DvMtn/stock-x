@@ -21,7 +21,6 @@ angular.module("stock").component("yahooComponent", {
         $scope.getNewsDay(today, today, $scope.stockSearch);
       }
     } // ends getDefaultNews
-
     userStocksService.getOneStock($stateParams.stockId).then(function(res){
        $scope.stockName = res.data[0].name;
        $scope.stockSymbol = res.data[0].symbol;
