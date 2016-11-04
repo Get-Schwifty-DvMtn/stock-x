@@ -8,7 +8,7 @@ angular.module("stock").component("yahooComponent", {
           begin: moment(start).format('YYYYMMDD'),
           end: moment(end).format('YYYYMMDD')
         };
-        $scope.newsDate = moment(start).format('MMMM Do, YYYY')
+        $scope.newsDate = moment(start).format('MMMM Do, YYYY');
         nyTimesService.getNews(companyData).then(function(res){
           $scope.news = res.data.response.docs;
         });
@@ -66,7 +66,7 @@ $scope.setGraphRange = function(monthsStart){
       };
       $scope.data = data13;
       $scope.options = {
-//
+
                 chart: {
                     showLegend: false,
                     type: type,
@@ -80,11 +80,11 @@ $scope.setGraphRange = function(monthsStart){
                     x: function(d){ return d['date']; },
                     y: function(d){ return d['close']; },
                     duration: 100,
-//
+
                     xAxis: {
                         axisLabel: 'Dates',
                         tickFormat: function(d) {
-                            return d3.time.format('%x')(new Date(d));
+                            return d3.time.format('%B %Y')(new Date(d));
                         },
                         showMaxMin: false
                     },
@@ -105,12 +105,22 @@ $scope.setGraphRange = function(monthsStart){
                           }
                         }
                     },
+                    interactiveLayer: {
+                        dispatch: {
+                          // THIS IS WHERE YOU CAN ACCESS THE POINT DATA
+                            elementClick: function(e){
+                            var date = (new Date(e.pointXValue));
+                            var searchDate = date;
+                            $scope.getNewsDay(searchDate, searchDate, $scope.stockName);
+                          }
+                        }
+                    },
                     zoom: {
-                        enabled: false,
+                        enabled: true,
                         scaleExtent: [1, 10],
-                        // useInteractiveGuideline: true,
+                        useInteractiveGuideline: true,
                         useFixedDomain: false,
-                        useNiceScale: false,
+                        useNiceScale: true,
                         horizontalOff: false,
                         verticalOff: true,
                         unzoomEventType: 'dblclick.zoom'
