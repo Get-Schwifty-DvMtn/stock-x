@@ -1,0 +1,18 @@
+.myButton {
+	background-color:#00CE9E;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:25px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: $menuFont;
+	font-size:28px;
+	padding:3px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #00CE9E;
+}
+.myButton:hover {
+	background-color:#067c61;
+    color: #fff;
+}
