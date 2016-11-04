@@ -83,7 +83,7 @@ $scope.setGraphRange = function(monthsStart){
                     xAxis: {
                         axisLabel: 'Dates',
                         tickFormat: function(d) {
-                            return d3.time.format('%B %Y')(new Date(d));
+                            return d3.time.format('%x')(new Date(d));
                         },
                         showMaxMin: false
                     },
@@ -119,19 +119,20 @@ $scope.setGraphRange = function(monthsStart){
                         scaleExtent: [1, 10],
                         useInteractiveGuideline: true,
                         useFixedDomain: false,
-                        useNiceScale: true,
+                        useNiceScale: false,
                         horizontalOff: false,
                         verticalOff: true,
                         unzoomEventType: 'dblclick.zoom'
                     }
                 } // this ends chart
             }; // this ends scope.options
-            $scope.config = {
-              deepWatchOptions:true
-            }; // end scope.config
-            setTimeout(function(){
-                $scope.api.refresh();
-            },500);
+            // $scope.config = {
+            //
+            //   deepWatchOptions:false
+            // }; // end scope.config
+            // setTimeout(function(){
+            //     $scope.api.refresh();
+            // },500);
       }); // ends yahooService.getStocks.then function
     };//ends setGraphRange function
   } // ends controller
