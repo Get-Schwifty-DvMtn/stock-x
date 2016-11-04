@@ -127,13 +127,13 @@ angular.module("stock").component("yahooComponent", {
                             }
                         },
                         zoom: {
-                            enabled: true,
+                            enabled: false,
                             scaleExtent: [
                                 1, 10
                             ],
                             useInteractiveGuideline: true,
                             useFixedDomain: false,
-                            useNiceScale: true,
+                            useNiceScale: false,
                             horizontalOff: false,
                             verticalOff: true,
                             unzoomEventType: 'dblclick.zoom'
