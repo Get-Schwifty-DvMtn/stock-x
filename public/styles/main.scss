@@ -2,12 +2,15 @@
 @import './css/variables.scss';
 @import './css/menu.scss';
 @import './css/yahooComponent.scss';
-@import './css/selectStocksComponent';
+@import './css/selectStocksComponent.scss';
+@import './css/homeView.scss';
+
 // .axis--x path {
 //   display: none;
 // }
+
 .line {
     fill: none;
-    stroke: steelblue;
+    stroke: $textColor;
     stroke-width: 1.5px;
 }
