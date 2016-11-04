@@ -12,9 +12,16 @@
   }
 </style>
 <div class="graph-button-container">
-        <button class='graph-btn' ng-click="changeGraph(1)" type="button">Line</button>
-        <button class='graph-btn' ng-click="changeGraph(2)" type="button">Candle Stick</button>
-        <button class='graph-btn' ng-click="changeGraph(3)" type="button">OHLC</button>
+  <button class='graph-btn' ng-click="changeGraph(1)" type="button">Line</button>
+  <button class='graph-btn' ng-click="changeGraph(2)" type="button">Candle Stick</button>
+  <button class='graph-btn' ng-click="changeGraph(3)" type="button">OHLC</button>
+  <select class="graph-date-selector" name="">
+    <option value="24 Mo">24 Mo</option>
+    <option value="12 Mo">12 Mo</option>
+    <option value="6 Mo">6 Mo</option>
+    <option value="3 Mo">3 Mo</option>
+    <option value="1 Mo">1 Mo</option>
+  </select>
 </div>
 <div class='graph-container'>
 <nvd3 options="options" data="data" config="config" api="api"></nvd3>
