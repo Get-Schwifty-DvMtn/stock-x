@@ -1,11 +1,32 @@
 angular.module("stock").component("yahooComponent", {
   templateUrl: "./js/templates/yahooComponent.html",
   controller: function yahooController(yahooService,nyTimesService,userStocksService, $stateParams, $scope){
-    userStocksService.getOneStock($stateParams.stockId).then(function(res){
-      $scope.stockName = res.data[0].name;
-      $scope.stockSymbol = res.data[0].symbol;
 
-    });
+    $scope.getNewsDay = function(start, end, company){
+        var companyData = {
+          company: company,
+          begin: moment(start).format('YYYYMMDD'),
+          end: moment(end).format('YYYYMMDD')
+        };
+        nyTimesService.getNews(companyData).then(function(res){
+          $scope.news = res.data.response.docs;
+        });
+    };
+
+    function getDefaultNews(){
+    if (!$scope.newsDate){
+      var today = new Date();
+      $scope.newsDate = moment(new Date()).format('MMMM Do, YYYY');
+      $scope.getNewsDay(today, today, $scope.stockSearch);
+   }
+  }
+  
+  userStocksService.getOneStock($stateParams.stockId).then(function(res){
+     $scope.stockName = res.data[0].name;
+     $scope.stockSymbol = res.data[0].symbol;
+     $scope.stockSearch = res.data[0].search_term;
+     getDefaultNews();
+   });
 
     yahooService.getStocks($stateParams.stockId).then(function(res){
       $scope.stockData = res.data;
@@ -90,18 +111,5 @@ angular.module("stock").component("yahooComponent", {
                 $scope.api.refresh();
             },500);
       });
-
-
-      $scope.getNewsDay = function(start, end, company){
-          var companyData = {
-            company: company,
-            begin: moment(start).format('YYYYMMDD'),
-            end: moment(end).format('YYYYMMDD')
-          };
-          nyTimesService.getNews(companyData).then(function(res){
-            $scope.news = res.data.response.docs;
-            console.log($scope.news);
-          });
-      };
   }
 });
