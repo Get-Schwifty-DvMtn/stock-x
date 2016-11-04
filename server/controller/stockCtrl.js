@@ -28,7 +28,7 @@ module.exports = {
       symbol = req.params.stockId;
     }
     else {
-      symbol = "ADBE";
+      symbol = "GOOG";
     }
     db.get_one_stock(symbol, function(err, stock){
       if (err){
@@ -39,6 +39,7 @@ module.exports = {
   },
 
   addNewFavorite: function(req, res) {
+    console.log(req.body);
     db.add_new_favorite([req.body[0], req.body[1].symbol], function (err, stock) {
       if (err) {
         res.status(400).json(err);
@@ -55,16 +56,15 @@ module.exports = {
   },
 
   removeFavorite: function(req, res) {
-    db.remove_favorite([req.params.id, req.params.stock], function (err, stock) {
+    console.log('req.params in stockCtrl', req.params);
+    
+    db.remove_favorite([req.params.stock_id], function (err, stock) {
       if (err) {
         res.status(400).json(err);
         console.log(err);
       } else {
-        var toDelete = {
-          user_google_id: req.params.id,
-          company_symbol: req.params.stock,
-        };
-        res.status(200).json(toDelete);
+        var id = req.params.stock_id;
+        res.status(200).json(id);
       }
     });
   },
