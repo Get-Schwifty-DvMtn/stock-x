@@ -1,6 +1,7 @@
 angular.module("stock").component("yahooComponent", {
     templateUrl: "./js/templates/yahooComponent.html",
     controller: function yahooController(yahooService, nyTimesService, userStocksService, $stateParams, $scope) {
+
             $scope.getNewsDay = function(start, end, company) {
                 var companyData = {
                     company: company,
@@ -29,6 +30,7 @@ angular.module("stock").component("yahooComponent", {
             });
             //
             var today = moment(new Date());
+
             $scope.setGraphRange = function(monthsStart) {
                 //
                 var stockData = {
@@ -41,6 +43,7 @@ angular.module("stock").component("yahooComponent", {
                     $scope.stockData = res.data;
                     $scope.stockSymbol = res.data[0].symbol;
                     console.log(res.data);
+
                     var data13 = [{ "values": [] }];
                     $scope.stockData.map(function(data) {
                         data13[0].values.push({ "date": new Date(data.date), "open": (data.open), "high": (data.high), "low": (data.low), "close": (data.close), "volume": (data.volume), "adjusted": (data.adjClose) });
@@ -60,6 +63,7 @@ angular.module("stock").component("yahooComponent", {
                     };
                     $scope.data = data13;
                     $scope.options = {
+
                         chart: {
                             showLegend: false,
                             type: type,
@@ -73,6 +77,7 @@ angular.module("stock").component("yahooComponent", {
                             x: function(d) { return d['date']; },
                             y: function(d) { return d['close']; },
                             duration: 100,
+
                             xAxis: {
                                 axisLabel: 'Dates',
                                 tickFormat: function(d) {
@@ -80,6 +85,7 @@ angular.module("stock").component("yahooComponent", {
                                 },
                                 showMaxMin: false
                             },
+
                             yAxis: {
                                 axisLabel: 'Stock Price',
                                 tickFormat: function(d) {
