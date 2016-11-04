@@ -356,48 +356,6 @@ a:hover, a:active {
     50% { opacity:0; }
     100% { opacity:1; }
 }
-///////////////////////////////////////
-/////////   Yahoo Component   /////////
-///////////////////////////////////////
-
-.graph-button-container {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 105px;
-}
-.graph-btn {
-    border-radius: 25px;
-    margin-right: 5px;
-    border:none;
-    outline:none;
-}
-// svg {
-//     margin-bottom: 105px;
-// }
-.nvd3 .nv-axis {
-    fill: #ff9554;
-}
-line {
-    stroke: black !important;
-}
-.graph-container {
-    height: 450px;
-    width: 95%;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 105px;
-}
-.news-column-headers {
-    display: flex;
-    justify-content: space-around;
-}
-.column-header {
-    font-family: $menuFont;
-    font-size: 16px;
-    color: $offWhite;
-}
 
 ///////////////////////////////////////////////
 /////////   Select Stocks Component   /////////
