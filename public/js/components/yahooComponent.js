@@ -42,7 +42,6 @@ $scope.setGraphRange = function(monthsStart){
      yahooService.getStocks(stockData).then(function(res){
        $scope.stockData = res.data;
        $scope.stockSymbol = res.data[0].symbol;
-       console.log(res.data);
 
          var data13 = [{"values": []}];
       $scope.stockData.map(function(data){
