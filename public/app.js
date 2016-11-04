@@ -27,7 +27,7 @@ angular.module("stock", ["ui.router", "nvd3"])
     .state("profile.profileStock", {
       url: "/stocks/:stockId",
       templateUrl: "./views/profileStock.html",
-      // controller: 'testCtrl'
+      controller: 'profileStockCtrl'
     });
     // .state("profile.pref", {
     //   url: "/pref",
