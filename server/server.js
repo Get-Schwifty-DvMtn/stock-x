@@ -80,7 +80,9 @@ app.get("/getonestock/:stockId", stockCtrl.getOneStock);
 app.get('/getuserinfo', userCtrl.getUserInfo);
 app.get("/getallstocks", stockCtrl.getAllStocks);
 app.get("/user/getsavedstocks/:id", stockCtrl.getSavedStocks);
-app.get("/testhole/:stockId", yahooCtrl.getStocks);
+
+app.get("/getgraphdata/:stockId/:start/:end", yahooCtrl.getStocks);
+
 app.post("/snapshots", yahooCtrl.savedStocksSnapshot);
 app.post("/addnewfavorite", stockCtrl.addNewFavorite);
 app.post("/stocknews", nytCtrl.getNews);

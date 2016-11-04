@@ -14,15 +14,22 @@ var todayFormatted = year + "-" + (month + 1) + "-" + date;
 
 module.exports = {
   getStocks: function(req, res) {
+console.log(req.params);
+    var dateObj = {
+      start: req.params.start,
+      end: req.params.end
+    };
+    console.log(dateObj);
+    var stock;
     if (req.params.stockId != 'undefined') {
-      var stock = req.params.stockId; //this will be a variable for the selected stock
+      stock = req.params.stockId; //this will be a variable for the selected stock
     } else {
       stock = 'GOOG';
     }
     yahooFinance.historical({
       symbol: stock,
-      from: '2015-11-01',
-      to: todayFormatted,
+      from: dateObj.start,
+      to: dateObj.end,
       // period: 'd'  // 'd' (daily), 'w' (weekly), 'm' (monthly), 'v' (dividends only)
     }, function (err, quotes) {
       if (err){
