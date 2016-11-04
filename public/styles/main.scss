@@ -1,12 +1,14 @@
 @import './base/reset.scss';
+@import './css/variables.scss';
 @import './css/menu.scss';
-
+@import './css/yahooComponent.scss';
+@import './css/selectStocksComponent.scss';
+@import './css/homeView.scss';
 // .axis--x path {
 //   display: none;
 // }
-
 .line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
 }
