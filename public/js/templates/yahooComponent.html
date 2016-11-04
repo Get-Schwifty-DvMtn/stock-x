@@ -12,30 +12,30 @@
   }
 </style>
 <div class="graph-button-container">
+
   <button class='graph-btn' ng-click="changeGraph(1)" type="button">Line</button>
   <button class='graph-btn' ng-click="changeGraph(2)" type="button">Candle Stick</button>
   <button class='graph-btn' ng-click="changeGraph(3)" type="button">OHLC</button>
-  <select class="graph-date-selector" name="">
-    <option value="24 Mo">24 Mo</option>
-    <option value="12 Mo">12 Mo</option>
-    <option value="6 Mo">6 Mo</option>
-    <option value="3 Mo">3 Mo</option>
-    <option value="1 Mo">1 Mo</option>
-  </select>
-</div>
-<div class='graph-container'>
-<nvd3 options="options" data="data" config="config" api="api"></nvd3>
-<h2 style="color: #ccc; text-align: center;">{{stockSymbol}}-{{stockName}} </h2>
+  <button ng-click="setGraphRange(1)"value="1 Mo">1 Mo</button>
+  <button ng-click="setGraphRange(3)"value="3 Mo">3 Mo</button>
+  <button ng-click="setGraphRange(6)"value="6 Mo">6 Mo</button>
+  <button ng-click="setGraphRange(12)"value="12 Mo">12 Mo</button>
+  <button ng-click="setGraphRange(24)"value="24 Mo">24 Mo</button>
+
 </div>
 
+<div class='graph-container'>
+<nvd3 options="options" data="data" config="config" api="api"></nvd3>
+</div>
+<h2 style="color: #00CE9E">{{stockSymbol}}-{{stockName}} </h2>
 <div >
   <h3>News for {{stockName}} on {{newsDate}}</h3>
   <table class="table"  style="color: #00CE9E">
     <thead>
-      <tr class='news-column-headers'>
-        <th class='column-header'>Go!</th>
-        <th class='column-header'>Headline</th>
-        <th class='column-header'>Snippet</th>
+      <tr>
+        <th>Go!</th>
+        <th>Headline</th>
+        <th>Snippet</th>
       </tr>
     </thead>
     <tbody>
