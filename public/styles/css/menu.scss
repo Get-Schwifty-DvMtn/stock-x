@@ -1,8 +1,6 @@
-$grain: #D7CEC7;
-$blackBoard: #565656;
-$oxblood: #76323F;
-$tan: #C09F80;
+$orange: #ff9554;
 $white: #fff;
+$offWhite: #ccc;
 $menuFont: 'Open Sans', sans-serif;
 $pageFont: 'big-noodle';
 *, *:before, *:after {
@@ -17,7 +15,7 @@ a {
     -webkit-transition: 0.2s all ease-in-out;
     outline: 0;
     font-family: 'Open Sans', sans-serif;
-    color: $grain;
+    color: gray;
     letter-spacing: .75px;
     text-decoration: none;
 }
@@ -163,7 +161,7 @@ nav a {
     opacity: .8;
     outline: 0;
     font-family: 'Open Sans', sans-serif;
-    color: $grain;
+    color: gray;
     letter-spacing: .75px;
 }
 nav a:hover {
@@ -262,6 +260,24 @@ a:hover, a:active {
  //////////////////////////////////
  /////////// HOME VIEW ////////////
  //////////////////////////////////
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  .item {
+      img {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: 90vh !important;
+      }
+  }
+  .container {
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+  }
 .element {
     margin-top: 70px;
     padding: 0px 200px;
@@ -349,6 +365,7 @@ a:hover, a:active {
     height: auto;
     display: flex;
     justify-content: center;
+    margin-top: 105px;
 }
 .graph-btn {
     border-radius: 25px;
@@ -371,6 +388,15 @@ line {
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 105px;
+}
+.news-column-headers {
+    display: flex;
+    justify-content: space-around;
+}
+.column-header {
+    font-family: $menuFont;
+    font-size: 16px;
+    color: $offWhite;
 }
 
 ///////////////////////////////////////////////

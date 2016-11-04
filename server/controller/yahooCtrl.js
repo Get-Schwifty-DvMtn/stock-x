@@ -10,6 +10,8 @@ var todayFormatted = year + "-" + (month + 1) + "-" + date;
 
 
 
+
+
 module.exports = {
   getStocks: function(req, res) {
 
@@ -21,7 +23,7 @@ module.exports = {
     if (req.params.stockId != 'undefined') {
       stock = req.params.stockId; //this will be a variable for the selected stock
     } else {
-      stock = 'ADBE';
+      stock = 'GOOG';
     }
     yahooFinance.historical({
       symbol: stock,
@@ -39,6 +41,7 @@ module.exports = {
   },
 
   savedStocksSnapshot: function(req, res) {
+    console.log("req.session", req.body);
     yahooFinance.snapshot({
       symbols: req.body.symbols,
       fields: ['s', 'n', 'a', 'c1', 'p2', 'w1']
