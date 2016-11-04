@@ -16,7 +16,10 @@ angular.module("stock")
       return $http.post("/addnewfavorite", symbol);
     };
     this.removeFavorite = function(id){
-      
       return $http.delete("/removefavorite/" + id);
     };
+    this.signOut = function() {
+      console.log("fired from userStocksService");
+      return $http.get("/logout");
+    }
 });

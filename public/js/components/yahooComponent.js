@@ -20,7 +20,7 @@ angular.module("stock").component("yahooComponent", {
       $scope.getNewsDay(today, today, $scope.stockSearch);
    }
   }
-  
+
   userStocksService.getOneStock($stateParams.stockId).then(function(res){
      $scope.stockName = res.data[0].name;
      $scope.stockSymbol = res.data[0].symbol;
@@ -92,12 +92,22 @@ angular.module("stock").component("yahooComponent", {
                           }
                         }
                     },
+                    interactiveLayer: {
+                        dispatch: {
+                          // THIS IS WHERE YOU CAN ACCESS THE POINT DATA
+                            elementClick: function(e){
+                            var date = (new Date(e.pointXValue));
+                            var searchDate = date;
+                            $scope.getNewsDay(searchDate, searchDate, $scope.stockName);
+                          }
+                        }
+                    },
                     zoom: {
-                        enabled: false,
+                        enabled: true,
                         scaleExtent: [1, 10],
-                        // useInteractiveGuideline: true,
+                        useInteractiveGuideline: true,
                         useFixedDomain: false,
-                        useNiceScale: false,
+                        useNiceScale: true,
                         horizontalOff: false,
                         verticalOff: true,
                         unzoomEventType: 'dblclick.zoom'
