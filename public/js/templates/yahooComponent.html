@@ -18,15 +18,16 @@
 </div>
 <div class='graph-container'>
 <nvd3 options="options" data="data" config="config" api="api"></nvd3>
+<h2 style="color: #ccc; text-align: center;">{{stockSymbol}}-{{stockName}} </h2>
 </div>
-<h2 style="color: #00CE9E">{{stockSymbol}}-{{stockName}} </h2>
+
 <div >
   <table class="table"  style="color: #00CE9E">
     <thead>
-      <tr>
-        <th>Go!</th>
-        <th>Headline</th>
-        <th>Snippet</th>
+      <tr class='news-column-headers'>
+        <th class='column-header'>Go!</th>
+        <th class='column-header'>Headline</th>
+        <th class='column-header'>Snippet</th>
       </tr>
     </thead>
     <tbody>
