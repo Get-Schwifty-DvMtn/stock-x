@@ -1,0 +1,146 @@
+
+.graph-header-container{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    .graph-header-company-name{
+      text-align: center;
+    }
+
+    .graph-button-container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        .graph-type-buttons{
+          padding-left: 15px;
+
+          
+        } //ends graph-type-buttons
+        .graph-range-buttons{
+          padding-right: 15px;
+          padding-bottom: 4px;
+          align-self: center;
+
+          .graph-range-button{
+            background: none;
+            border: none;
+            color: steelblue;
+          }
+        } // ends graph-range-buttons
+    } // ends graph-button-container
+} //ends graph-header-container
+
+
+// svg {
+//     margin-bottom: 105px;
+// }
+.nvd3 .nv-axis {
+    fill: #ff9554;
+}
+line {
+    stroke: black !important;
+}
+.graph-container {
+    height: 450px;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 105px;
+}
+.news-column-headers {
+    display: flex;
+    justify-content: space-around;
+}
+.column-header {
+    font-family: $menuFont;
+    font-size: 16px;
+    color: $offWhite;
+}
+
+.stockchart-nav-dropdown {
+    font-size: 1.25em;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+.stockchart-nav-dropdown ul {
+    margin-left: 0;
+    padding-left: 0;
+    width: 200px;
+    list-style: none;
+    position: relative;
+    display: inline-table;
+}
+
+.stockchart-nav-dropdown ul ul {
+    display: none;
+}
+
+.stockchart-nav-dropdown ul li:hover>ul {
+    display: block;
+}
+
+.stockchart-nav-dropdown ul li {
+    float: left;
+    width: 200px;
+    text-align: left;
+    border-bottom: 3px solid #2ecc71;
+}
+
+.stockchart-nav-dropdown ul li:hover {
+    background: #f2f2f2;
+}
+
+.stockchart-nav-dropdown ul li a {
+    display: block;
+    padding: 15px 10px;
+    background-color: #282424;
+    text-decoration: none;
+}
+
+.stockchart-nav-dropdown ul ul {
+    border-radius: 0px;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+}
+
+.stockchart-nav-dropdown ul ul li {
+    float: none;
+    border-bottom: 2px solid #eaeaea;
+    position: relative;
+}
+
+.stockchart-nav-dropdown ul ul li a {
+    padding: 15px 10px;
+    color: #838383;
+}
+
+.stockchart-nav-dropdown ul ul li a:hover {
+    background: #47d583;
+    color: #fff;
+}
+
+#down-triangle {
+    float: right;
+    width: 0;
+    height: 0;
+    margin-top: 10px;
+    border-top: 10px solid #2ecc71;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.circle {
+    float: right;
+    display: inline;
+    width: 10px;
+    height: 10px;
+    margin-top: 5px;
+    border: 3px solid #8ce5b2;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+}
