@@ -1,4 +1,9 @@
-
+.chartDropdown {
+  color: $textColor
+}
+.chartDropdown:hover {
+  color: darken($textColor, 10%);
+}
 .graph-header-container{
     height: 20vh;
     display: flex;
@@ -16,7 +21,7 @@
         .graph-type-buttons{
           padding-left: 15px;
 
-          
+
         } //ends graph-type-buttons
         .graph-range-buttons{
           padding-right: 15px;
@@ -26,9 +31,13 @@
           .graph-range-button{
             background: none;
             border: none;
-            color: steelblue;
+            color: $textColor;
           }
-        } // ends graph-range-buttons
+          .graph-range-button:hover {
+            color: darken($textColor, 10%);
+          }
+        }
+        // ends graph-range-buttons
     } // ends graph-button-container
 } //ends graph-header-container
 
@@ -86,7 +95,7 @@ line {
     float: left;
     width: 200px;
     text-align: left;
-    border-bottom: 3px solid #2ecc71;
+    border-bottom: 3px solid $textColor;
 }
 
 .stockchart-nav-dropdown ul li:hover {
@@ -119,7 +128,7 @@ line {
 }
 
 .stockchart-nav-dropdown ul ul li a:hover {
-    background: #47d583;
+    background: $textColor;
     color: #fff;
 }
 
@@ -128,7 +137,7 @@ line {
     width: 0;
     height: 0;
     margin-top: 10px;
-    border-top: 10px solid #2ecc71;
+    border-top: 10px solid $textColor;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
 }
@@ -139,8 +148,11 @@ line {
     width: 10px;
     height: 10px;
     margin-top: 5px;
-    border: 3px solid #8ce5b2;
+    border: 3px solid $textColor;
     -moz-border-radius: 100%;
     -webkit-border-radius: 100%;
     border-radius: 100%;
+}
+.newsTitle {
+  color: darken($offWhite, 0%);
 }
