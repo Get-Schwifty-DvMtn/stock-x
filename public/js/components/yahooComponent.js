@@ -81,7 +81,7 @@ angular.module("stock").component("yahooComponent", {
                             xAxis: {
                                 axisLabel: 'Dates',
                                 tickFormat: function(d) {
-                                    return d3.time.format('%B %Y')(new Date(d));
+                                    return d3.time.format('%x')(new Date(d));
                                 },
                                 showMaxMin: false
                             },
