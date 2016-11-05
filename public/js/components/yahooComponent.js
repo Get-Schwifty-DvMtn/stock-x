@@ -81,7 +81,7 @@ angular.module("stock").component("yahooComponent", {
                             xAxis: {
                                 axisLabel: 'Dates',
                                 tickFormat: function(d) {
-                                    return d3.time.format('%B %Y')(new Date(d));
+                                    return d3.time.format('%x')(new Date(d));
                                 },
                                 showMaxMin: false
                             },
@@ -117,7 +117,7 @@ angular.module("stock").component("yahooComponent", {
                                 scaleExtent: [1, 10],
                                 // useInteractiveGuideline: true,
                                 useFixedDomain: false,
-                                useNiceScale: true,
+                                useNiceScale: false,
                                 horizontalOff: false,
                                 verticalOff: true,
                                 unzoomEventType: 'dblclick.zoom'
