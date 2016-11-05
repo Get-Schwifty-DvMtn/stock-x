@@ -115,7 +115,7 @@ angular.module("stock").component("yahooComponent", {
                             zoom: {
                                 enabled: false,
                                 scaleExtent: [1, 10],
-                                useInteractiveGuideline: true,
+                                // useInteractiveGuideline: true,
                                 useFixedDomain: false,
                                 useNiceScale: false,
                                 horizontalOff: false,

@@ -3,6 +3,12 @@
       width: 70%;
       margin: auto;
   }
+  .max-width-wrapper {
+      width: 100%;
+      max-width: 85%;
+      margin-left: auto;
+      margin-right: auto;
+  }
   .item {
       img {
           width: 100% !important;
@@ -32,9 +38,11 @@
     justify-content: center;
 }
 .about-us-wrapper {
-    background-color: #1f77b4;
     height: 40vh;
     width: 100%;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
         .three-icon-container {
