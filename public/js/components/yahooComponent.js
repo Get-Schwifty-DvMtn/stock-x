@@ -146,6 +146,11 @@ angular.module("stock").component("yahooComponent", {
                 setTimeout(function() {
                     $scope.api.refresh();
                 }, 500);
+                $scope.colorFunction = function() {
+                    return function(d, i) {
+                        return '#00CE9E'
+                    };
+                }
             }); // ends yahooService.getStocks.then function
         }; //ends setGraphRange function
     } // ends controller
