@@ -1,3 +1,7 @@
+.stockHeader {
+  color: $textColor;
+
+}
 .chartDropdown {
   color: $textColor
 }
@@ -10,6 +14,7 @@
     flex-direction: column;
     .graph-header-company-name{
       text-align: center;
+      margin-top: 20px;
     }
 
     .graph-button-container {
@@ -17,7 +22,7 @@
         height: auto;
         display: flex;
         justify-content: space-between;
-        margin-top: 30px;
+        margin-top: 15px;
         .graph-type-buttons{
           padding-left: 15px;
 
@@ -36,6 +41,9 @@
           .graph-range-button:hover {
             color: darken($textColor, 10%);
           }
+          .graph-range-button:focus {
+            outline-color: $textColor;
+          }
         }
         // ends graph-range-buttons
     } // ends graph-button-container
@@ -46,7 +54,7 @@
 //     margin-bottom: 105px;
 // }
 .nvd3 .nv-axis {
-    fill: #ff9554;
+    fill: $offWhite + $textColor;
 }
 line {
     stroke: black !important;
@@ -95,7 +103,7 @@ line {
     float: left;
     width: 200px;
     text-align: left;
-    border-bottom: 3px solid $textColor;
+    border-bottom: 2px solid $textColor;
 }
 
 .stockchart-nav-dropdown ul li:hover {
@@ -104,7 +112,9 @@ line {
 
 .stockchart-nav-dropdown ul li a {
     display: block;
-    padding: 15px 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
     background-color: #282424;
     text-decoration: none;
 }
