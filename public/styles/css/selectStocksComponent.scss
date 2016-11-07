@@ -16,3 +16,13 @@
 	background-color:#067c61;
     color: #fff;
 }
+.search-box {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.width-container {
+	max-width: 85% !important;
+	margin-left: auto;
+	margin-right: auto;
+}
