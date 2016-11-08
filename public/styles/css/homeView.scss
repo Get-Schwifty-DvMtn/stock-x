@@ -1,3 +1,12 @@
+.signInContainer {
+  display: flex;
+  align-items: center;
+  padding-right: 7.5%;
+}
+.loginBtn {
+  width: 200px;
+  height: 35px;
+}
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
       width: 70%;
@@ -10,10 +19,11 @@
       margin-right: auto;
   }
   .item {
+      max-height: 100vh;
       img {
-          width: 100% !important;
-          max-width: 100% !important;
-          height: 90vh !important;
+          width: auto !important;
+          // max-width: 100% !important;
+          // height: 90vh !important;
       }
   }
   .container {
@@ -68,6 +78,10 @@
                     margin-right: auto;
                     margin-top: 35px;
                     padding-left: 2.75%;
+                    img{
+                      width: 128px;
+                      height: 128px;
+                    }
                 }
             .icon-text {
                 font-family: 'PT Sans', sans-serif;
