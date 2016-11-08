@@ -1,3 +1,12 @@
+.signInContainer {
+  display: flex;
+  align-items: center;
+  padding-right: 7.5%;
+}
+.loginBtn {
+  width: 200px;
+  height: 35px;
+}
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
       width: 70%;
