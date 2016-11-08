@@ -10,19 +10,17 @@
     <div class="header-logo-section">
       <img class = "logo-svg" src="./styles/images/logo.svg" alt="" />
     </div>
-    <div ng-show="loggedIn" class="profile-container">
-        <div class="image-profile-wrapper">
-            <img style="width: 50px; height: auto;border-radius: 50px;" class="user-profile-pic" ng-src="{{userPic}}" alt=""/>
-        </div>
-        <div class="greeting-profile-wrapper">
-            <p>Hello,
-                {{firstName}}
-                {{lastName}}</p>
-        </div>
 
-    </div>
     <div class="signInContainer">
+      <div ng-show="loggedIn" class="profile-container">
+          <!-- <div class="image-profile-wrapper">
+              <img style="width: 50px; height: auto;border-radius: 50px;" class="user-profile-pic" ng-src="{{userPic}}" alt=""/>
+          </div> -->
+          <div class="greeting-profile-wrapper">
+              <p>Hello, {{firstName}}</p>
+          </div>
 
+      </div>
         <a ng-show="loggedIn" ng-click="signOut()" class="btn btn-block btn-google">
             <span class="fa"></span>
             Sign Out</a>
