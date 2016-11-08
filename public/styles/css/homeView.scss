@@ -3,12 +3,51 @@
       width: 70%;
       margin: auto;
   }
+  .brand-name {
+        position: absolute;
+        left: 41%;
+        z-index: 1;
+        top: 9%;
+        
+        h1 {
+            color: $carouselWords;
+            font-size: 7em;
+        }
+  }
   .item {
       img {
           width: 100% !important;
           max-width: 100% !important;
           height: 90vh !important;
       }
+      .words-on-carousel {
+          position: absolute;
+          background-color: rgba(0,0,0,.5);
+
+          h2 {
+            font-size: 6em;
+            color: $carouselWords;
+          }
+      }
+        .carousel-words-1 {
+            top: 350px !important;
+            margin: auto;
+        }
+
+        .carousel-words-2 {
+            top: 350px;
+            margin: auto;
+        }
+
+        .carousel-words-3 {
+            top: 350px;
+            margin: auto;
+        }
+
+        .carousel-words-4 {
+            top: 350px;
+            margin: auto;
+        }
   }
   .container {
       padding: 0 !important;
