@@ -4,14 +4,18 @@
 @import './css/yahooComponent.scss';
 @import './css/selectStocksComponent.scss';
 @import './css/homeView.scss';
-
-
 // .axis--x path {
 //   display: none;
 // }
 
-.line {
-    fill: none;
-    stroke: $textColor;
-    stroke-width: 1.5px;
+.nvd3 .nv-group.nv-series-0 {
+     fill: $textColor !important; /* color for area */
+     stroke: $textColor !important; /* color for area */
+}
+.legend-color-guide div {
+  background-color: $textColor !important;
+}
+.nvtooltip table tbody tr {
+  background-color: rgba(255,255,255,0.1);
+
 }
