@@ -1,12 +1,12 @@
 @import './base/reset.scss';
+@import './css/bootstrapSocial.scss';
 @import './css/variables.scss';
 @import './css/menu.scss';
 @import './css/yahooComponent.scss';
 @import './css/selectStocksComponent.scss';
 @import './css/homeView.scss';
-// .axis--x path {
-//   display: none;
-// }
+
+
 
 .nvd3 .nv-group.nv-series-0 {
      fill: $textColor !important; /* color for area */

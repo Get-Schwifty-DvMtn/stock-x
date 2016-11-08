@@ -1,5 +1,5 @@
 .stockHeader {
-  color: $textColor;
+  color: $orange;
 
 }
 .chartDropdown {
@@ -54,7 +54,7 @@
 //     margin-bottom: 105px;
 // }
 .nvd3 .nv-axis {
-    fill: $offWhite + $textColor;
+    fill: $orange;
 }
 line {
     stroke: black !important;
