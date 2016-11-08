@@ -51,9 +51,11 @@
         </div>
     </div>
 </div>
-
 <div class="graph-container">
     <nvd3 options="options" data="data" config="config" api="api" ></nvd3>
+    <div style="width: 100%; display: flex; justify-content: center; padding-top: 20px; padding-left: 35px;">
+    <a href="/auth/google" class="sign-in-stocks" ng-show="uiRouterState.current.name == 'home'">Sign In To Search More Stocks</a>
+    </div>
 </div>
 <div >
     <h3 class="newsTitle">News for
