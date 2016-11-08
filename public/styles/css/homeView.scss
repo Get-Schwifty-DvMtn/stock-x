@@ -10,10 +10,11 @@
       margin-right: auto;
   }
   .item {
+      max-height: 100vh;
       img {
-          width: 100% !important;
-          max-width: 100% !important;
-          height: 90vh !important;
+          width: auto !important;
+          // max-width: 100% !important;
+          // height: 90vh !important;
       }
   }
   .container {
