@@ -6,15 +6,26 @@
             <span class="t3"></span>
         </div>
     </div>
-    <div ng-show = "loggedIn" class= "profile-container">
-      <div class="image-profile-wrapper">
-        <img style = "width: 50px; height: auto;border-radius: 50px;" class="user-profile-pic" ng-src="{{userPic}}" alt="" />
-      </div>
+    <div ng-show="loggedIn" class="profile-container">
+        <div class="image-profile-wrapper">
+            <img style="width: 50px; height: auto;border-radius: 50px;" class="user-profile-pic" ng-src="{{userPic}}" alt=""/>
+        </div>
         <div class="greeting-profile-wrapper">
-        <p>Hello, {{firstName}} {{lastName}}</p>
-      </div>
+            <p>Hello,
+                {{firstName}}
+                {{lastName}}</p>
+        </div>
 
     </div>
-    <a ng-show = "loggedIn" ng-click="signOut()" class="btn btn-default"><span class="fa fa-user"></span> Sign Out</a>
-    <a ng-show = "!loggedIn" href="/auth/google" class="btn btn-default"><span class="fa fa-user"></span> Sign In with Google</a>
+    <div class="signInContainer">
+
+        <a ng-show="loggedIn" ng-click="signOut()" class="btn btn-block btn-google">
+            <span class="fa"></span>
+            Sign Out</a>
+        <a ng-show="!loggedIn" href="/auth/google" class="loginBtn btn btn-block btn-social btn-google">
+            <i class="fa fa-google"></i>
+            Sign In with Google
+        </a>
+    </div>
+
 </div>
