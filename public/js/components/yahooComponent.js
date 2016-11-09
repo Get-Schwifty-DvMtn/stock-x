@@ -1,7 +1,9 @@
 angular.module("stock").component("yahooComponent", {
     templateUrl: "./js/templates/yahooComponent.html",
-    controller: function yahooController(yahooService, nyTimesService, userStocksService, $stateParams, $scope) {
+    controller: function yahooController(yahooService, nyTimesService, userStocksService, $stateParams, $scope, $state) {
 
+            $scope.uiRouterState = $state;
+            
             $scope.getNewsDay = function(start, end, company) {
                 var companyData = {
                     company: company,
