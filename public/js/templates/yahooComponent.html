@@ -22,7 +22,7 @@
             <div class="stockchart-nav-dropdown">
                 <ul>
                     <li>
-                        <a href="#" class="chartDropdown">Chart Types<div id="down-triangle"></div>
+                        <a class="chartDropdown">Chart Types<div id="down-triangle"></div>
                         </a>
                         <ul>
                             <li>
@@ -54,7 +54,7 @@
 <div class="graph-container">
     <nvd3 options="options" data="data" config="config" api="api" ></nvd3>
     <div style="width: 100%; display: flex; justify-content: center; padding-top: 20px; padding-left: 35px;">
-    <a href="/auth/google" class="sign-in-stocks" ng-show="uiRouterState.current.name == 'home'">Sign In To Search More Stocks</a>
+    <a href="/auth/google" ng-show="!loggedIn" ng-show="uiRouterState.current.name == 'home'"><button class=" btn btn-google"type="button" name="button">Sign In To Search More Stocks</button></a>
     </div>
 </div>
 <div >
