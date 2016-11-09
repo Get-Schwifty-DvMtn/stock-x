@@ -3,9 +3,14 @@
   display: flex;
   align-items: center;
   // padding-right: 7.5%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.greeting-profile-wrapper{
+  text-align: center;
 }
 .loginBtn {
-  width: 200px;
+  // width: 200px;
   height: 35px;
 }
 .carousel-inner > .item > img,
