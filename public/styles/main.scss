@@ -6,7 +6,9 @@
 @import './css/selectStocksComponent.scss';
 @import './css/homeView.scss';
 
-
+body{
+  font-family: "pt sans"
+}
 
 .nvd3 .nv-group.nv-series-0 {
      fill: $textColor !important; /* color for area */
