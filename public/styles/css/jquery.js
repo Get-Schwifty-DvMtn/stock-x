@@ -18,17 +18,15 @@ $(document).ready(function () {
 
 	});
 	$('.wrapper').on('click', function() {
-		// console.log('fired')
 		$(this).removeClass("active");
 		$(".navicon").removeClass("active");
 		$('.header').removeClass("active");
 		$(".wrapper-overlay").removeClass("active");
 		$("body").removeClass("no-scroll");
 		$(".header-logo-section").removeClass("active")
-		
+
 	});
 	// $(".wrapper").click(function() {
-	// 	console.log('fired')
 	// 	$(this).removeClass("active");
 	// 	$(".navicon").removeClass("active");
 	// 	$(".wrapper-overlay").removeClass("active");

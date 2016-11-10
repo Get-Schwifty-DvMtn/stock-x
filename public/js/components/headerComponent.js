@@ -1,6 +1,6 @@
 angular.module('stock').component('headerComponent', {
     templateUrl: "./js/templates/headerComponent.html",
-    controller: function headerController(userStocksService, $scope, $stateParams, $state) {
+    controller: function headerController(userStocksService, yahooService, $scope, $stateParams, $state) {
     //   console.log("stateParams",$stateParams.id);
 
     setTimeout(function() {
@@ -21,7 +21,6 @@ angular.module('stock').component('headerComponent', {
     }, 50);
 
         $scope.signOut = function() {
-          console.log("fired from headerComponent");
           userStocksService.signOut();
           $scope.loggedIn = false;
           $state.go('home');

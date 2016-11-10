@@ -4,7 +4,6 @@ angular.module("stock")
     controller: function nyTimesController(nyTimesService, $scope) {
       nyTimesService.getNews().then(function(response) {
           $scope.news = response.data.response.docs;
-          console.log($scope.news);
         });
     },
     bindings: {
