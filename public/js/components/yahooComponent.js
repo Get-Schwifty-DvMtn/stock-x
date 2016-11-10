@@ -53,11 +53,9 @@ angular.module("stock").component("yahooComponent", {
                     start: moment(new Date()).subtract(monthsStart, "months").format("YYYY-MM-DD"),
                     end: today.format("YYYY-MM-DD")
                 };
-                console.log("before http call", stockData);
                 yahooService.getStocks(stockData).then(function(res) {
                     $scope.stockData = res.data;
                     $scope.stockSymbol = res.data[0].symbol;
-                    console.log(res.data);
 
                     var data13 = [{ "values": [] }];
                     $scope.stockData.map(function(data) {
