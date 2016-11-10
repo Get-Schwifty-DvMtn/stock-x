@@ -1,23 +1,24 @@
 angular.module('stock').component('headerComponent', {
     templateUrl: "./js/templates/headerComponent.html",
-    controller: function headerController(userStocksService, yahooService, $scope, $stateParams, $state) {
-        //   console.log("stateParams",$stateParams.id);
+    controller: function headerController(userStocksService, $scope, $stateParams, $state) {
+    //   console.log("stateParams",$stateParams.id);
 
-        setTimeout(function() {
+    setTimeout(function() {
 
-            var getUser = (function() {
-                userStocksService.getUserInfo().then(function(res) {
-                    $scope.firstName = res.data.first_name;
-                    $scope.lastName = res.data.last_name;
-                    $scope.userPic = res.data.pic_url;
-                    if (res.data) {
-                        $scope.loggedIn = true;
-                    } else {
-                        $scope.loggedIn = false;
-                    }
-                })
-            })();
-        }, 50);
+        var getUser = (function() {
+            userStocksService.getUserInfo().then(function(res) {
+                $scope.firstName = res.data.first_name;
+                $scope.lastName = res.data.last_name;
+                $scope.userPic = res.data.pic_url;
+                if (res.data) {
+                    $scope.loggedIn = true;
+                } else {
+                    $scope.loggedIn = false;
+                }
+            })
+        })();
+        console.log($scope.loggedIn);
+    }, 50);
 
         $scope.signOut = function() {
           console.log("fired from headerComponent");
