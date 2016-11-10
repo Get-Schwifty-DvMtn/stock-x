@@ -29,14 +29,6 @@
     </thead>
     <tbody>
     <tr class="select-stocks-list-container" ng-repeat="stock in all_stocks | filter: newFavoriteStock">
-
-
-        <!-- <td>
-          <a ng-click="addNewFavorite(stock)" cursor="pointer">{{stock.symbol}}</a>
-        </td>
-        <td>
-          <a ng-click="addNewFavorite(stock)" cursor="pointer">{{stock.name}}</a>
-        </td> -->
         <td ui-sref="profile.profileStock({stockId: stock.symbol})">
           {{stock.symbol}}
         </td>
