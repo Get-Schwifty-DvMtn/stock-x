@@ -4,7 +4,7 @@ angular.module("stock").component("yahooComponent", {
         setTimeout(function() {
             var getUser = (function() {
                 userStocksService.getUserInfo().then(function(res) {
-    //               console.log(res.data);
+
                     if (res.data) {
                         $scope.loggedIn = true;
                     } else {
@@ -12,7 +12,6 @@ angular.module("stock").component("yahooComponent", {
                     }
                 });
             })();
-            // console.log($scope.loggedIn);
         }, 50);
         $scope.uiRouterState = $state;
         $scope.getNewsDay = function(start, end, company) {
@@ -40,8 +39,10 @@ angular.module("stock").component("yahooComponent", {
             $scope.stockSearch = res.data[0].search_term;
             getDefaultNews();
             $scope.setGraphRange(12);
-        }); //ends mainService.getOneStock function call
-    //     //
+
+
+        });
+        //
         var today = moment(new Date());
     //
         $scope.setGraphRange = function(monthsStart) {  // for some reason this closing bracket is showing as the controller's closing bracket
@@ -50,8 +51,8 @@ angular.module("stock").component("yahooComponent", {
                 stockSymbol: $scope.stockSymbol,
                 start: moment(new Date()).subtract(monthsStart, "months").format("YYYY-MM-DD"),
                 end: today.format("YYYY-MM-DD")
-            }; // ends var stockData
-    //         console.log("before http call", stockData);
+
+            };
             yahooService.getStocks(stockData).then(function(res) {
                 $scope.stockData = res.data;
                 $scope.stockSymbol = res.data[0].symbol;
@@ -71,18 +72,22 @@ angular.module("stock").component("yahooComponent", {
                         "close": (data.close),
                         "volume": (data.volume),
                         "adjusted": (data.adjClose)
-                    }); // ends the object in the .push
-                }); // ends $scope.stockData.map function
-    //             //
-                var type = 'lineChart';
-    //             //
+
+                    });
+                });
+                //
+                // var type = 'lineChart';
+                //
                 $scope.changeGraph = function(num) {
                     if (num === 1) {
                         type = 'lineChart';
+                        userStocksService.type = type;
                     } else if (num === 2) {
                         type = 'candlestickBarChart';
+                        userStocksService.type = type;
                     } else if (num === 3) {
                         type = 'ohlcBarChart';
+                        userStocksService.type = type;
                     }
                     $scope.options.chart.type = type;
                 };
@@ -92,7 +97,7 @@ angular.module("stock").component("yahooComponent", {
     //
                     chart: {
                         showLegend: false,
-                        type: type,
+                        type: userStocksService.type,
                         height: 450,
                         margin: {
                             top: 20,
