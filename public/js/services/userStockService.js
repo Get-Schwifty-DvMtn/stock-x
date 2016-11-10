@@ -22,4 +22,5 @@ angular.module("stock")
       console.log("fired from userStocksService");
       return $http.get("/logout");
     }
+    this.type = 'lineChart';
 });
