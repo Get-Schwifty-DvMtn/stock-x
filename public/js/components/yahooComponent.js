@@ -2,8 +2,21 @@ angular.module("stock").component("yahooComponent", {
     templateUrl: "./js/templates/yahooComponent.html",
     controller: function yahooController(yahooService, nyTimesService, userStocksService, $stateParams, $scope, $state) {
 
+      setTimeout(function() {
+
+          var getUser = (function() {
+              userStocksService.getUserInfo().then(function(res) {
+                  if (res.data) {
+                      $scope.loggedIn = true;
+                  } else {
+                      $scope.loggedIn = false;
+                  }
+              });
+          })();
+      }, 50);
+
             $scope.uiRouterState = $state;
-            
+
             $scope.getNewsDay = function(start, end, company) {
                 var companyData = {
                     company: company,
