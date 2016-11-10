@@ -6,7 +6,6 @@ angular.module("stock").component("yahooComponent", {
 
             var getUser = (function() {
                 userStocksService.getUserInfo().then(function(res) {
-                  console.log(res.data);
                     if (res.data) {
                         $scope.loggedIn = true;
                     } else {
@@ -14,7 +13,6 @@ angular.module("stock").component("yahooComponent", {
                     }
                 });
             })();
-            // console.log($scope.loggedIn);
         }, 50);
 
         $scope.uiRouterState = $state;
@@ -44,6 +42,7 @@ angular.module("stock").component("yahooComponent", {
             $scope.stockSearch = res.data[0].search_term;
             getDefaultNews();
             $scope.setGraphRange(12);
+
         });
         //
         var today = moment(new Date());
@@ -55,7 +54,6 @@ angular.module("stock").component("yahooComponent", {
                 start: moment(new Date()).subtract(monthsStart, "months").format("YYYY-MM-DD"),
                 end: today.format("YYYY-MM-DD")
             };
-            console.log("before http call", stockData);
             yahooService.getStocks(stockData).then(function(res) {
                 $scope.stockData = res.data;
                 $scope.stockSymbol = res.data[0].symbol;
@@ -78,15 +76,18 @@ angular.module("stock").component("yahooComponent", {
                     });
                 });
                 //
-                var type = 'lineChart';
+                // var type = 'lineChart';
                 //
                 $scope.changeGraph = function(num) {
                     if (num === 1) {
                         type = 'lineChart';
+                        userStocksService.type = type;
                     } else if (num === 2) {
                         type = 'candlestickBarChart';
+                        userStocksService.type = type;
                     } else if (num === 3) {
                         type = 'ohlcBarChart';
+                        userStocksService.type = type;
                     }
                     $scope.options.chart.type = type;
                 };
@@ -95,7 +96,7 @@ angular.module("stock").component("yahooComponent", {
 
                     chart: {
                         showLegend: false,
-                        type: type,
+                        type: userStocksService.type,
                         height: 450,
                         margin: {
                             top: 20,
