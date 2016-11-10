@@ -13,41 +13,47 @@
   // width: 200px;
   height: 35px;
 }
-.carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
-  }
-  .max-width-wrapper {
-      width: 100%;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-  }
-  .item {
-      max-height: 100vh;
-      img {
-          width: auto !important;
-          // max-width: 100% !important;
-          // height: 90vh !important;
-      }
-  }
-  .container {
+.home-landing-image {
+    background-image: url("../styles/images/wall-street-night.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    min-height: 85vh;
+    position: relative;
+}
+.white-overlay {
+    background-color: rgba(255, 255, 255, .5);
+    z-index: 20;
+    height: 85vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+ .container {
       padding: 0 !important;
       margin: 0 !important;
       max-width: 100% !important;
       width: 100% !important;
   }
+    .max-width-wrapper {
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+  }
 .element {
-    margin-top: 70px;
+    /*margin-top: 100px;*/
     padding: 0px 200px;
-    font-size: 50px;
+    font-size: 75px;
     font-family: big-noodle;
+    width: 100%;
+    position: absolute;
     display: flex;
     justify-content: center;
-    color: #ff9554;
+    color: black;
     height: 10vh;
     text-align:center;
+    opacity: 1;
 }
 .yahooComponent {
     display: flex;
