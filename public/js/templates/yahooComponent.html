@@ -65,25 +65,21 @@
     <table class="table" style="color: #f9ab7a">
         <thead>
             <tr>
-                <th>Go!</th>
                 <th>Headline</th>
                 <th>Snippet</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="article in news">
+            <tr ng-repeat="article in news" style="cursor:pointer;">
                 <td>
-                    <a target="_blank" ng-href="{{article.web_url}}">
-                        <button type="button">
-                            <span class="glyphicon glyphicon-new-window"></span>
-                        </button>
-                    </a>
-                </td>
-                <td>
+                  <a target="_blank" ng-href="{{article.web_url}}">
                     {{article.headline.main}}
+                  </a>
                 </td>
                 <td>
+                  <a target="_blank" ng-href="{{article.web_url}}">
                     {{article.snippet}}
+                  </a>
                 </td>
             </tr>
         </tbody>

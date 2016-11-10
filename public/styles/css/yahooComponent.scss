@@ -206,3 +206,21 @@ line {
 	position:relative;
 	top:1px;
 }
+.table tbody tr td a {
+  color: $orange;
+}
+.table tbody tr td a:hover {
+  color: darken($orange, 10%);
+}
+.table tbody tr td a:focus {
+  text-decoration: none;
+}
+.table tbody tr td a:active {
+  text-decoration: none;
+}
+tbody tr:nth-child(odd):hover {
+    background-color: darken(#404040, 5%);
+}
+tbody tr:nth-child(even):hover {
+    background-color: lighten(#272424, 5%);
+}
