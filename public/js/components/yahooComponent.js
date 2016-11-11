@@ -1,11 +1,10 @@
 angular.module("stock").component("yahooComponent", {
     templateUrl: "./js/templates/yahooComponent.html",
     controller: function yahooController(yahooService, nyTimesService, userStocksService, $stateParams, $scope, $state) {
-
         setTimeout(function() {
-
             var getUser = (function() {
                 userStocksService.getUserInfo().then(function(res) {
+
                     if (res.data) {
                         $scope.loggedIn = true;
                     } else {
@@ -14,9 +13,7 @@ angular.module("stock").component("yahooComponent", {
                 });
             })();
         }, 50);
-
         $scope.uiRouterState = $state;
-
         $scope.getNewsDay = function(start, end, company) {
             var companyData = {
                 company: company,
@@ -28,7 +25,7 @@ angular.module("stock").component("yahooComponent", {
                 $scope.news = res.data.response.docs;
             });
         }; // ends getNewsDay
-        //
+
         function getDefaultNews() {
             if (!$scope.newsDate) {
                 var today = new Date();
@@ -43,21 +40,24 @@ angular.module("stock").component("yahooComponent", {
             getDefaultNews();
             $scope.setGraphRange(12);
 
-        }); //ends mainService.getOneStock function call
-        //
-        var today = moment(new Date());
 
-        $scope.setGraphRange = function(monthsStart) {
-            //
+        }); //ends mainService.getOneStock function call
+
+        
+        var today = moment(new Date());
+    
+        $scope.setGraphRange = function(monthsStart) {  // for some reason this closing bracket is showing as the controller's closing bracket
+    
             var stockData = {
                 stockSymbol: $scope.stockSymbol,
                 start: moment(new Date()).subtract(monthsStart, "months").format("YYYY-MM-DD"),
                 end: today.format("YYYY-MM-DD")
+
             };
             yahooService.getStocks(stockData).then(function(res) {
                 $scope.stockData = res.data;
                 $scope.stockSymbol = res.data[0].symbol;
-                console.log(res.data);
+    //             console.log(res.data);
 
                 var data13 = [
                     {
@@ -75,6 +75,7 @@ angular.module("stock").component("yahooComponent", {
                         "adjusted": (data.adjClose)
                     }); // ends the object in the .push
                 }); // ends $scope.stockData.map function
+
                 //
                 // var type = 'lineChart';
                 //
@@ -91,9 +92,10 @@ angular.module("stock").component("yahooComponent", {
                     }
                     $scope.options.chart.type = type;
                 };
+    //
                 $scope.data = data13;
                 $scope.options = {
-
+    //
                     chart: {
                         showLegend: false,
                         type: userStocksService.type,
@@ -111,7 +113,7 @@ angular.module("stock").component("yahooComponent", {
                             return d['close'];
                         },
                         duration: 100,
-
+    //
                         xAxis: {
                             axisLabel: 'Dates',
                             tickFormat: function(d) {
@@ -119,7 +121,7 @@ angular.module("stock").component("yahooComponent", {
                             },
                             showMaxMin: false
                         },
-
+    //
                         yAxis: {
                             axisLabel: 'Stock Price',
                             tickFormat: function(d) {
