@@ -43,12 +43,13 @@ angular.module("stock").component("yahooComponent", {
             $scope.setGraphRange(12);
 
 
-        });
-        //
+        }); //ends mainService.getOneStock function call
+
+        
         var today = moment(new Date());
-    //
+    
         $scope.setGraphRange = function(monthsStart) {  // for some reason this closing bracket is showing as the controller's closing bracket
-    //         //
+    
             var stockData = {
                 stockSymbol: $scope.stockSymbol,
                 start: moment(new Date()).subtract(monthsStart, "months").format("YYYY-MM-DD"),
@@ -74,9 +75,9 @@ angular.module("stock").component("yahooComponent", {
                         "close": (data.close),
                         "volume": (data.volume),
                         "adjusted": (data.adjClose)
+                    }); // ends the object in the .push
+                }); // ends $scope.stockData.map function
 
-                    });
-                });
                 //
                 // var type = 'lineChart';
                 //

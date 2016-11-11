@@ -29,6 +29,13 @@
     display: flex;
     align-items: center;
 }
+
+.graph-anchor {
+    z-index: 3;
+    margin-top: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+}
  .container {
       padding: 0 !important;
       margin: 0 !important;
