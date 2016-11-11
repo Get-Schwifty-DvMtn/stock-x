@@ -13,8 +13,8 @@
 </style>
 
 <div class="starred-stocks-container" id="reload">
-  <h3 style="color: rgba(217,217,217,.7)">Your current watchlist: </h3>
-  <h1 ng-if="!saved_stocks.length" class="text-center">Add some stocks to your watchlist!</h1>
+  <h3 style="color: rgba(217,217,217,.7)" class="current-watchlist">Your current watchlist: </h3>
+  <h1 ng-if="!saved_stocks.length" class="text-center add-stock">Add some stocks to your watchlist!</h1>
   <table class="table" style="color:#f9ab7a" ng-if="saved_stocks.length">
     <thead>
       <tr>
