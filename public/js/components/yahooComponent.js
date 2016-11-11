@@ -41,12 +41,13 @@ angular.module("stock").component("yahooComponent", {
             $scope.setGraphRange(12);
 
 
-        });
-        //
+        }); //ends mainService.getOneStock function call
+
+        
         var today = moment(new Date());
-    //
+    
         $scope.setGraphRange = function(monthsStart) {  // for some reason this closing bracket is showing as the controller's closing bracket
-    //         //
+    
             var stockData = {
                 stockSymbol: $scope.stockSymbol,
                 start: moment(new Date()).subtract(monthsStart, "months").format("YYYY-MM-DD"),
@@ -72,9 +73,9 @@ angular.module("stock").component("yahooComponent", {
                         "close": (data.close),
                         "volume": (data.volume),
                         "adjusted": (data.adjClose)
+                    }); // ends the object in the .push
+                }); // ends $scope.stockData.map function
 
-                    });
-                });
                 //
                 // var type = 'lineChart';
                 //
@@ -133,7 +134,7 @@ angular.module("stock").component("yahooComponent", {
                                 // THIS IS WHERE YOU CAN ACCESS THE POINT DATA
                                 elementClick: function(e) {
                                     var searchDate = e.point.date;
-                                    $scope.getNewsDay(searchDate, searchDate, $scope.stockName);
+                                    $scope.getNewsDay(searchDate, searchDate, $scope.stockSearch);
                                 }
                             }
                         },
@@ -143,7 +144,7 @@ angular.module("stock").component("yahooComponent", {
                                 elementClick: function(e) {
                                     var date = (new Date(e.pointXValue));
                                     var searchDate = date;
-                                    $scope.getNewsDay(searchDate, searchDate, $scope.stockName);
+                                    $scope.getNewsDay(searchDate, searchDate, $scope.stockSearch);
                                 }
                             }
                         },
