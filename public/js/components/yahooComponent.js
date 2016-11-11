@@ -20,6 +20,7 @@ angular.module("stock").component("yahooComponent", {
                 begin: moment(start).format('YYYYMMDD'),
                 end: moment(end).format('YYYYMMDD')
             };
+            // console.log("companyData:", companyData);
             $scope.newsDate = moment(start).format('MMMM Do, YYYY');
             nyTimesService.getNews(companyData).then(function(res) {
                 $scope.news = res.data.response.docs;
@@ -37,6 +38,7 @@ angular.module("stock").component("yahooComponent", {
             $scope.stockName = res.data[0].name;
             $scope.stockSymbol = res.data[0].symbol;
             $scope.stockSearch = res.data[0].search_term;
+            // console.log("search term coming in:", res.data[0].search_term);
             getDefaultNews();
             $scope.setGraphRange(12);
 
