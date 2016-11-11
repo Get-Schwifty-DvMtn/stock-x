@@ -20,6 +20,7 @@ angular.module("stock").component("yahooComponent", {
                 begin: moment(start).format('YYYYMMDD'),
                 end: moment(end).format('YYYYMMDD')
             };
+            // console.log("companyData:", companyData);
             $scope.newsDate = moment(start).format('MMMM Do, YYYY');
             nyTimesService.getNews(companyData).then(function(res) {
                 $scope.news = res.data.response.docs;
@@ -37,6 +38,7 @@ angular.module("stock").component("yahooComponent", {
             $scope.stockName = res.data[0].name;
             $scope.stockSymbol = res.data[0].symbol;
             $scope.stockSearch = res.data[0].search_term;
+            // console.log("search term coming in:", res.data[0].search_term);
             getDefaultNews();
             $scope.setGraphRange(12);
 
@@ -133,7 +135,7 @@ angular.module("stock").component("yahooComponent", {
                                 // THIS IS WHERE YOU CAN ACCESS THE POINT DATA
                                 elementClick: function(e) {
                                     var searchDate = e.point.date;
-                                    $scope.getNewsDay(searchDate, searchDate, $scope.stockName);
+                                    $scope.getNewsDay(searchDate, searchDate, $scope.stockSearch);
                                 }
                             }
                         },
@@ -143,7 +145,7 @@ angular.module("stock").component("yahooComponent", {
                                 elementClick: function(e) {
                                     var date = (new Date(e.pointXValue));
                                     var searchDate = date;
-                                    $scope.getNewsDay(searchDate, searchDate, $scope.stockName);
+                                    $scope.getNewsDay(searchDate, searchDate, $scope.stockSearch);
                                 }
                             }
                         },
